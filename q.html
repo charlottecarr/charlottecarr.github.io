@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Report Cybercrime - Scenario A</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .scenario {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      user-select: none;
+    }
+
+    .scenario h2 {
+      margin-top: 0;
+    }
+
+    .scenario p {
+      max-height: 300px;
+      overflow-y: auto;
+      padding-right: 10px;
+    }
+
+    .chatbot-container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    typebot-standard {
+      width: 100%;
+      height: 600px;
+    }
+
+    .evidence-toggle {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 16px;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    .evidence-toggle:hover {
+      background-color: #0056b3;
+    }
+
+    .evidence-section {
+      display: none;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .evidence-item {
+      margin-bottom: 20px;
+    }
+
+    .evidence-section img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-top: 10px;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .evidence-section img:hover {
+      box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+    }
+
+    .next-button {
+      display: inline-block;
+      background-color: #444444;
+      color: white;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    .next-button:hover {
+      background-color: #555555;
+    }
+
+    #backToTopBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 16px;
+      cursor: pointer;
+      font-size: 14px;
+      z-index: 999;
+    }
+
+    #backToTopBtn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body oncontextmenu="showWarning(event)" oncopy="showWarning(event)" oncut="showWarning(event)">
+  
+  <button id="backToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    Back to the Top
+  </button>
+
+  <div class="container">
+    <!-- Scenario Section -->
+    <div class="scenario">
+      <h2>Scenario A:</h2>
+      <p>
+        You bought a laptop online for $800. The store had good reviews and seemed real.<br><br>
+        After paying with your credit card, you got an email with your order number and a tracking link. Two weeks have passed, and:
+        <ul>
+          <li>Your package hasn't arrived</li>
+          <li>The tracking number doesn't show any updates</li>
+          <li>Nobody answers your emails to customer service</li>
+          <li>The store's phone number doesn't work anymore</li>
+          <li>The website is now completely gone</li>
+          <li>The $800 charge is still on your credit card</li>
+        </ul>
+        You want to report this.<br><br>
+        When you report, remember these details:
+        <ul>
+          <li>Order #TR29584</li>
+          <li>Date of purchase: March 8, 2025</li>
+          <li>Payment method: Credit card</li>
+          <li>Last email sent to company: March 18, 2025</li>
+          <li>Website name: SuperTechDeals.com</li>
+        </ul>
+      </p>
+    </div>
+
+    <!-- Toggle Evidence -->
+    <button class="evidence-toggle" onclick="toggleEvidence()">View Evidence</button>
+
+    <!-- Evidence Images Section -->
+    <div class="evidence-section" id="evidenceSection">
+      <p>You may download these images and include them in your report if you'd like (optional).</p>
+
+      <div class="evidence-item">
+        <strong>Order Confirmation</strong><br>
+        <img src="https://b2054703.smushcdn.com/2054703/wp-content/uploads/2021/02/Interior-pages-images-Credit-Cards-400x600-1.png?lossy=1&strip=1&webp=1" alt="Order Confirmation Screenshot"><br>
+        <a href="evidence1.png" download>Download Image</a>
+      </div>
+
+      <div class="evidence-item">
+        <strong>Tracking Page Screenshot</strong><br>
+        <img src="https://b2054703.smushcdn.com/2054703/wp-content/uploads/2021/02/Interior-pages-images-Credit-Cards-400x600-1.png?lossy=1&strip=1&webp=1" alt="Tracking Screenshot"><br>
+        <a href="evidence2.png" download>Download Image</a>
+      </div>
+
+      <div class="evidence-item">
+        <strong>Email to Customer Service</strong><br>
+        <img src="https://b2054703.smushcdn.com/2054703/wp-content/uploads/2021/02/Interior-pages-images-Credit-Cards-400x600-1.png?lossy=1&strip=1&webp=1" alt="Email Screenshot"><br>
+        <a href="evidence3.png" download>Download Image</a>
+      </div>
+    </div>
+
+    <!-- Chatbot Section -->
+    <div class="chatbot-container">
+      <typebot-standard style="width: 100%; height: 600px;"></typebot-standard>
+      <script>
+        const typebotInitScript = document.createElement("script");
+        typebotInitScript.type = "module";
+        typebotInitScript.innerHTML = `
+          import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0.3/dist/web.js';
+          Typebot.initStandard({ typebot: "charlotteuserstudy" });
+        `;
+        document.body.append(typebotInitScript);
+      </script>
+    </div>
+
+    <!-- Next Page Button -->
+    <a href="page2.html" class="next-button">Next: Post-task Questions</a>
+  </div>
+
+  <script>
+    function showWarning(e) {
+      alert("To help keep the study fair for everyone, copying or right-clicking the scenario is disabled. Thanks for understanding!");
+      e.preventDefault();
+    }
+
+    function toggleEvidence() {
+      const section = document.getElementById("evidenceSection");
+      section.style.display = section.style.display === "none" || section.style.display === "" ? "block" : "none";
+    }
+  </script>
+
+</body>
+</html>
