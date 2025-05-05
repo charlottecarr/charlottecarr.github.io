@@ -66,6 +66,46 @@
     .next-button:hover {
       background-color: #555555;
     }
+    
+        .evidence-toggle {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 16px;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    .evidence-toggle:hover {
+      background-color: #0056b3;
+    }
+
+    .evidence-section {
+      display: none;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .evidence-item {
+      margin-bottom: 20px;
+    }
+
+    .evidence-section img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-top: 10px;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .evidence-section img:hover {
+      box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+    }
 
     #backToTopBtn {
       position: fixed;
@@ -119,6 +159,26 @@
       </p>
     </div>
 
+       <!-- Toggle Evidence -->
+    <button class="evidence-toggle" onclick="toggleEvidence()">View Evidence</button>
+
+    <!-- Evidence Images Section -->
+    <div class="evidence-section" id="evidenceSection">
+      <p>You may download these images and include them in your report if you'd like (optional).</p>
+
+      <div class="evidence-item">
+        <strong>Confirmation Email</strong><br>
+        <img src="Email Thread Super Tech Deals.png"><br>
+        <a href="Email Thread Super Tech Deals.png" download>Download Image</a>
+      </div>
+
+      <div class="evidence-item">
+        <strong>Site Down Screenshot</strong><br>
+        <img src="Site Can't Be Reached Super Tech Deals.png" width="400"><br>
+        <a href="Site Can't Be Reached Super Tech Deals.png" download>Download Image</a>
+      </div>
+    </div>
+
     <!-- Reporting Form Section -->
     <div class="survey-container">
       <iframe class="qualtrics-embed" src="https://carletonu.az1.qualtrics.com/jfe/form/SV_37APzj632qieHm6"></iframe>
@@ -127,11 +187,16 @@
     <!-- Styled Next Page Button -->
     <a href="w4.html?trackid=w" class="next-button">Next: Follow Up Questions</a>
   </div>
-
+  
   <script>
     function showWarning(e) {
       alert("Copying and right-clicking are disabled in this study. Please read the scenario carefully, then describe what happened in your own words, just as you would if you were reporting it yourself. Thanks for understanding!");
       e.preventDefault();
+    }
+
+    function toggleEvidence() {
+      const section = document.getElementById("evidenceSection");
+      section.style.display = section.style.display === "none" || section.style.display === "" ? "block" : "none";
     }
   </script>
 
