@@ -187,11 +187,19 @@
   </div>
 
   <script>
-    function showWarning(e) {
-      alert("Copying and right-clicking are disabled in this study. Please read the scenario carefully, then describe what happened in your own words, just as you would if you were reporting it yourself. Thanks for understanding!");
-      e.preventDefault();
-    }
-  </script>
+  function showWarning(e) {
+    alert("Copying and right-clicking are disabled in this study. Please read the scenario carefully, then describe what happened in your own words, just as you would if you were reporting it yourself. Thanks for understanding!");
+    e.preventDefault();
+  }
+
+  function toggleEvidence() {
+    const section = document.getElementById("evidenceSection");
+    const isHidden = section.style.display === "none" || section.style.display === "";
+
+    section.style.display = isHidden ? "block" : "none";
+  }
+</script>
+
 
 </body>
 </html>
