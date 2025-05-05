@@ -26,13 +26,6 @@
       margin-bottom: 20px;
 
       user-select: none;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      pointer-events: auto;
-    }
-
-    .scenario * {
       pointer-events: auto;
     }
 
@@ -67,6 +60,14 @@
       margin-bottom: 20px;
     }
 
+    .evidence-section img {
+      max-width: 100%;
+      height: auto;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
     .evidence-section ul {
       padding-left: 20px;
     }
@@ -92,7 +93,6 @@
 </head>
 <body oncontextmenu="showWarning(event)" oncopy="showWarning(event)" oncut="showWarning(event)">
   
-  <!-- Back to Top Button -->
   <button id="backToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
     🔼 View Scenario Again
   </button>
@@ -124,13 +124,26 @@
       </p>
     </div>
 
-    <!-- Evidence Image Section -->
+    <!-- Evidence Images Section -->
     <div class="evidence-section">
-      <h3>Evidence Images (Download & Upload to Chatbot)</h3>
+      <h3>Optional Evidence Files</h3>
+      <p>If you'd like, you can download any of the below and upload them during your report.</p>
       <ul>
-        <li><a href="evidence1.png" download>Download Order Confirmation</a></li>
-        <li><a href="evidence2.png" download>Download Tracking Screenshot</a></li>
-        <li><a href="evidence3.png" download>Download Email to Support</a></li>
+        <li>
+          <strong>Order Confirmation</strong><br>
+          <img src="https://www.visa.ca/dam/VCOM/regional/na/canada/pay-with-visa/cards/credit/visa-platinum-recto-800x450.jpg" alt="Order Confirmation Screenshot"><br>
+          <a href="evidence1.png" download>Download Image</a>
+        </li>
+        <li>
+          <strong>Tracking Page Screenshot</strong><br>
+          <img src="https://www.visa.ca/dam/VCOM/regional/na/canada/pay-with-visa/cards/credit/visa-gold-recto-800x450.jpg" alt="Tracking Screenshot"><br>
+          <a href="evidence2.png" download>Download Image</a>
+        </li>
+        <li>
+          <strong>Email to Customer Service</strong><br>
+          <img src="https://b2054703.smushcdn.com/2054703/wp-content/uploads/2021/02/Interior-pages-images-Credit-Cards-400x600-1.png?lossy=1&strip=1&webp=1" alt="Email Screenshot"><br>
+          <a href="evidence3.png" download>Download Image</a>
+        </li>
       </ul>
     </div>
 
@@ -154,10 +167,11 @@
 
   <script>
     function showWarning(e) {
-      alert("Copying or right-clicking this content is disabled to maintain study integrity.");
+      alert("Heads up! Copying and right-clicking on the scenario is disabled to help maintain the integrity of this study. Thanks for understanding!");
       e.preventDefault();
     }
   </script>
 
 </body>
 </html>
+
