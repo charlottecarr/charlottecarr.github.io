@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scenario B</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .scenario {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      user-select: none;
+    }
+
+    .scenario h2 {
+      margin-top: 0;
+    }
+
+    .scenario p {
+      max-height: 300px;
+      overflow-y: auto;
+      padding-right: 10px;
+    }
+
+    .survey-container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .qualtrics-embed {
+      width: 100%;
+      height: 700px;
+      border: none;
+    }
+
+    .next-button {
+      display: inline-block;
+      background-color: #444444;
+      color: white;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    .next-button:hover {
+      background-color: #555555;
+    }
+
+    #backToTopBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 16px;
+      cursor: pointer;
+      font-size: 14px;
+      z-index: 999;
+    }
+
+    #backToTopBtn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body oncontextmenu="showWarning(event)" oncopy="showWarning(event)" oncut="showWarning(event)">
+
+  <button id="backToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    Back to the Top
+  </button>
+
+  <div class="container">
+    <!-- Scenario B Section -->
+    <div class="scenario">
+      <h2>Scenario B</h2>
+      <p>
+        You received an email that looks like it's from your bank. The email says there is a problem with your account that needs fixing right away. You notice:
+        <ul>
+          <li>The email has spelling mistakes</li>
+          <li>It calls you "Dear Customer" instead of using your name</li>
+          <li>The sender's email is "support@bankaccount-secure.net" (not your bank's real website)</li>
+          <li>There's a button that says "Fix Account Now"</li>
+        </ul>
+        You clicked the link without thinking. The link took you to a fake website that looks like your bank's login page. You realized something wasn't right before entering your password, so you closed the website without giving any personal information. Now you want to report this.
+      </p>
+    </div>
+
+    <!-- Reporting Form Section -->
+    <div class="survey-container">
+      <iframe class="qualtrics-embed" src="https://carletonu.az1.qualtrics.com/jfe/form/SV_7NDUDgHh3Aq6HHM"></iframe>
+    </div>
+
+    <!-- Styled Next Page Button -->
+    <a href="page4.html" class="next-button">Next: Post-task Questions</a>
+  </div>
+
+  <script>
+    function showWarning(e) {
+      alert("Copying and right-clicking are disabled in this study. Please read the scenario carefully, then describe what happened in your own words, just as you would if you were reporting it yourself. Thanks for understanding!");
+      e.preventDefault();
+    }
+  </script>
+
+</body>
+</html>
