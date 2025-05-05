@@ -92,7 +92,7 @@
 
     .next-button {
       display: inline-block;
-      background-color: #28a745;
+      background-color: #333333;
       color: white;
       text-decoration: none;
       padding: 12px 20px;
@@ -103,7 +103,7 @@
     }
 
     .next-button:hover {
-      background-color: #218838;
+      background-color: #444444;
     }
 
     #backToTopBtn {
@@ -128,7 +128,7 @@
 <body oncontextmenu="showWarning(event)" oncopy="showWarning(event)" oncut="showWarning(event)">
   
   <button id="backToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-    🔼 View Scenario Again
+    Back to the Top
   </button>
 
   <div class="container">
@@ -159,11 +159,11 @@
     </div>
 
     <!-- Toggle Evidence -->
-    <button class="evidence-toggle" onclick="toggleEvidence()">📁 View Optional Evidence</button>
+    <button class="evidence-toggle" onclick="toggleEvidence()">View Evidence</button>
 
     <!-- Evidence Images Section -->
     <div class="evidence-section" id="evidenceSection">
-      <p>You may optionally download these images and upload them to the chatbot if you'd like.</p>
+      <p>You may download these images and include them in your report if you'd like (optional).</p>
 
       <div class="evidence-item">
         <strong>Order Confirmation</strong><br>
