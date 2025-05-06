@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Follow Up Survey - Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .survey-container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .qualtrics-embed {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+    .next-button {
+  display: inline-block;
+  background-color: #444444;
+  color: white;
+  padding: 12px 20px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 6px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.next-button:hover {
+  background-color: #555555;
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Post-task Survey Section -->
+    <div class="survey-container">
+      <h3>Please answer these follow up questions:</h3>
+      <!-- Embed Qualtrics Survey -->
+      <iframe id="qualtrics-embed" class="qualtrics-embed"></iframe>
+    </div>
+
+    <!-- Link to Scenario B (Page 3) -->
+    <a href="e3.html?trackid=q" class="next-button">Next: Scenario B</a>
+
+  </div>
+
+  <script>
+    // Parse the URL parameter (e.g., ?trackid=q)
+    const urlParams = new URLSearchParams(window.location.search);
+    const trackid = urlParams.get('trackid');
+
+    // Construct Qualtrics URL with embedded trackid (if present)
+    const baseURL = "https://carletonu.az1.qualtrics.com/jfe/form/SV_1BTGJA0jBi8WHHM";
+    const fullURL = trackid ? `${baseURL}?trackid=${trackid}` : baseURL;
+
+    // Inject it into the iframe
+    document.getElementById("qualtrics-embed").src = fullURL;
+  </script>
+
+</body>
+</html>
