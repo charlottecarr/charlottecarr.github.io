@@ -33,6 +33,10 @@
         .text-block h2 { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 4vw, 52px); font-weight: 400; line-height: 1.25; margin-bottom: 32px; }
         .text-block p { font-size: 15px; color: #666; line-height: 1.9; margin-bottom: 20px; max-width: 680px; }
 
+        .split-text { padding: 100px 48px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+        .split-text h2 { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 4vw, 48px); font-weight: 400; line-height: 1.25; }
+        .split-text .body-col p { font-size: 15px; color: #666; line-height: 1.9; margin-bottom: 20px; }
+
         .two-col { padding: 0 48px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; max-width: 1100px; }
         .two-col p { font-size: 15px; color: #666; line-height: 1.9; }
 
@@ -61,8 +65,8 @@
         .vibe-note:hover { color: #999; }
 
         @media (max-width: 800px) {
-            nav, .statement, .meta-row, .text-block, .two-col, .text-image, .stats-row, .quote-block, .case-bottom { padding-left: 24px; padding-right: 24px; }
-            .meta-row, .two-col, .text-image { grid-template-columns: 1fr; gap: 32px; }
+            nav, .statement, .meta-row, .text-block, .split-text, .two-col, .text-image, .stats-row, .quote-block, .case-bottom { padding-left: 24px; padding-right: 24px; }
+            .meta-row, .two-col, .text-image, .split-text { grid-template-columns: 1fr; gap: 32px; }
             .stats-row { grid-template-columns: 1fr 1fr; gap: 32px; }
             .img-pair { grid-template-columns: 1fr; }
         }
@@ -105,10 +109,12 @@
 </div>
 
 <!-- ======= DECISION 1: Start with research, not assumptions ======= -->
-<div class="text-block">
+<div class="split-text">
     <h2>The agency wanted to jump straight to building. I pushed to understand the problem first.</h2>
-    <p>The NC3 had an idea for an AI chatbot but no data on why people don't report in the first place. Their internal process for running a survey would have taken months of panel clearance. I proposed Prolific instead: cheaper, faster, and we'd have data in weeks not months. 204 participants later, we had a clear picture that changed the entire product direction.</p>
-    <p>The biggest insight: the time and effort required to report was a stronger predictor of whether someone reports than the actual financial loss. A $3,000 investment scam and a $300 shopping scam had similar reporting likelihood. This meant the product needed to focus entirely on reducing friction, not on convincing people the incident was "serious enough" to report.</p>
+    <div class="body-col">
+        <p>The NC3 had an idea for an AI chatbot but no data on why people don't report in the first place. Their internal process for running a survey would have taken months of panel clearance. I proposed Prolific instead: cheaper, faster, and we'd have data in weeks not months. 204 participants later, we had a clear picture that changed the entire product direction.</p>
+        <p>The biggest insight: the time and effort required to report was a stronger predictor of whether someone reports than the actual financial loss. A $3,000 investment scam and a $300 shopping scam had similar reporting likelihood. This meant the product needed to focus entirely on reducing friction, not on convincing people the incident was "serious enough" to report.</p>
+    </div>
 </div>
 
 <!-- ======= DECISION 2: Narrative-first, not form-first ======= -->
@@ -150,16 +156,20 @@
 </div>
 
 <!-- ======= DECISION 4: Calibrated empathy ======= -->
-<div class="text-block">
+<div class="split-text">
     <h2>Usability testing taught me that empathy has a threshold. Go past it and people get annoyed.</h2>
-    <p>In early testing, the chatbot was warm and reassuring at every turn. Some users appreciated it. Others found it performative. One participant said flatly: "I don't need you, AI chatbots, sympathizing with me." Another participant who did value the empathy said it "kind of makes our sense of victimization feel like it's been heard, even though it hasn't, because it's a computer."</p>
-    <p>I calibrated the tone to be supportive at key moments (the opening, after the user shares their story, at the end) but direct and efficient everywhere else. Match the user's energy: if they write a short answer, give a short reply. If they write a paragraph, acknowledge it properly. Don't be warm for warmth's sake.</p>
+    <div class="body-col">
+        <p>In early testing, the chatbot was warm and reassuring at every turn. Some users appreciated it. Others found it performative. One participant said flatly: "I don't need you, AI chatbots, sympathizing with me." Another participant who did value the empathy said it "kind of makes our sense of victimization feel like it's been heard, even though it hasn't, because it's a computer."</p>
+        <p>I calibrated the tone to be supportive at key moments (the opening, after the user shares their story, at the end) but direct and efficient everywhere else. Match the user's energy: if they write a short answer, give a short reply. If they write a paragraph, acknowledge it properly. Don't be warm for warmth's sake.</p>
+    </div>
 </div>
 
 <!-- ======= DECISION 5: Evidence timing ======= -->
-<div class="text-block">
+<div class="split-text">
     <h2>I placed evidence upload at the end, not the beginning.</h2>
-    <p>The existing form asks for screenshots and documents early in the process. For someone who's just been scammed and is already unsure whether this is worth reporting, being asked to dig through their inbox for evidence before they've even told their story creates a wall. I moved evidence collection to after the narrative and follow-up questions. By that point, the user has already invested in the report and the ask feels reasonable rather than intimidating.</p>
+    <div class="body-col">
+        <p>The existing form asks for screenshots and documents early in the process. For someone who's just been scammed and is already unsure whether this is worth reporting, being asked to dig through their inbox for evidence before they've even told their story creates a wall. I moved evidence collection to after the narrative and follow-up questions. By that point, the user has already invested in the report and the ask feels reasonable rather than intimidating.</p>
+    </div>
 </div>
 
 <!-- ======= WHAT I LEARNED FROM USERS ======= -->
@@ -200,10 +210,12 @@
 </div>
 
 <!-- ======= WHAT I SHIPPED ======= -->
-<div class="text-block">
+<div class="split-text">
     <h2>I shipped the prototype, the research, and a 16-page handover document so the team could keep building without me.</h2>
-    <p>The handover documentation included a step-by-step guide to rebuilding the chatbot from scratch, the exact AI prompts I wrote, explanations of how Typebot works for non-technical team members, and tips for maintaining reliability. I wrote it for an audience that might never have built a chatbot before, because the people continuing this work probably haven't.</p>
-    <p>The agency expected, at most, the foundational survey. I delivered the survey, a working AI prototype, statistically significant usability results, and documentation for continuity. In about 8 months, by myself, while also TAing and finishing my degree.</p>
+    <div class="body-col">
+        <p>The handover documentation included a step-by-step guide to rebuilding the chatbot from scratch, the exact AI prompts I wrote, explanations of how Typebot works for non-technical team members, and tips for maintaining reliability. I wrote it for an audience that might never have built a chatbot before, because the people continuing this work probably haven't.</p>
+        <p>The agency expected, at most, the foundational survey. I delivered the survey, a working AI prototype, statistically significant usability results, and documentation for continuity. In about 8 months, by myself, while also TAing and finishing my degree.</p>
+    </div>
 </div>
 
 <div class="case-bottom">
