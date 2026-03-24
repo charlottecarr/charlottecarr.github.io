@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haptic Feedback for Trichotillomania — Charlotte Carr</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        ::selection { background: #D6382E; color: #fff; }
+        body { font-family: 'DM Sans', sans-serif; background: #fff; color: #111; -webkit-font-smoothing: antialiased; }
+        a { color: inherit; text-decoration: none; }
+
+        nav { padding: 32px 48px; display: flex; justify-content: space-between; align-items: center; }
+        nav .name { font-size: 14px; font-weight: 500; }
+        nav .back { font-size: 14px; color: #aaa; transition: color 0.3s; }
+        nav .back:hover { color: #111; }
+
+        .statement { padding: 80px 48px 60px; max-width: 1100px; }
+        .statement h1 { font-family: 'DM Serif Display', serif; font-size: clamp(32px, 4.5vw, 56px); font-weight: 400; line-height: 1.3; }
+
+        .meta-row { padding: 0 48px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; max-width: 1100px; }
+        .meta-col h3 { font-size: 15px; font-weight: 500; color: #111; margin-bottom: 16px; }
+        .meta-col p { font-size: 15px; color: #666; line-height: 1.8; }
+
+        .full-img { width: 100%; background: #F0EEEA; overflow: hidden; position: relative; }
+        .full-img img { width: 100%; display: block; }
+        .full-img .ph { padding: 120px 48px; font-size: 13px; color: #bbb; text-align: center; }
+        .full-img .ph code { display: block; font-size: 12px; background: #e6e3dd; padding: 4px 14px; border-radius: 3px; color: #999; width: fit-content; margin: 0 auto 8px; }
+
+        .text-block { padding: 100px 48px 40px; }
+        .text-block p { font-size: 15px; color: #666; line-height: 1.9; margin-bottom: 20px; max-width: 680px; }
+        .text-block h2 { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 4vw, 52px); font-weight: 400; line-height: 1.25; margin-bottom: 32px; }
+
+        .two-col { padding: 0 48px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; max-width: 1100px; }
+        .two-col p { font-size: 15px; color: #666; line-height: 1.9; }
+
+        /* Karolis-style: text left, app screens right on light bg */
+        .text-screens {
+            padding: 0 48px 100px;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 64px;
+            align-items: center;
+        }
+        .text-screens .text-col h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(24px, 3vw, 38px);
+            font-weight: 400;
+            line-height: 1.3;
+            margin-bottom: 24px;
+        }
+        .text-screens .text-col p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+        .text-screens .screens-col {
+            background: #F7F5F2;
+            border-radius: 8px;
+            padding: 48px 32px;
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .text-screens .screens-col img {
+            width: 22%;
+            border-radius: 8px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+        }
+        .text-screens .screens-col .ph-screen {
+            width: 22%;
+            aspect-ratio: 9/19;
+            background: #E8E5E0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #aaa;
+            text-align: center;
+            padding: 8px;
+        }
+
+        .text-image { padding: 0 48px 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+        .text-image .text-col p { font-size: 15px; color: #666; line-height: 1.9; margin-bottom: 20px; }
+        .text-image .text-col h2 { font-family: 'DM Serif Display', serif; font-size: clamp(26px, 3.5vw, 46px); font-weight: 400; line-height: 1.3; margin-bottom: 24px; }
+        .text-image .img-col { background: #F0EEEA; overflow: hidden; border-radius: 4px; }
+        .text-image .img-col img { width: 100%; display: block; }
+
+        .stats-row { padding: 0 48px 100px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; max-width: 1100px; }
+        .stat-item .num { font-family: 'DM Serif Display', serif; font-size: 36px; font-weight: 400; color: #111; margin-bottom: 8px; }
+        .stat-item .label { font-size: 13px; color: #999; line-height: 1.6; }
+
+        .quote-block { padding: 80px 48px; max-width: 900px; }
+        .quote-block blockquote { font-family: 'DM Serif Display', serif; font-size: clamp(22px, 2.5vw, 32px); font-weight: 400; font-style: italic; line-height: 1.5; }
+        .quote-block .attr { margin-top: 16px; font-size: 14px; color: #999; }
+
+        .case-bottom { padding: 60px 48px; border-top: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
+        .case-bottom a { font-size: 14px; color: #aaa; transition: color 0.3s; }
+        .case-bottom a:hover { color: #111; }
+        .vibe-note { font-size: 12px; font-style: italic; color: #ddd; transition: color 0.5s; cursor: default; }
+        .vibe-note:hover { color: #999; }
+
+        @media (max-width: 800px) {
+            nav, .statement, .meta-row, .text-block, .two-col, .text-screens, .text-image, .stats-row, .quote-block, .case-bottom { padding-left: 24px; padding-right: 24px; }
+            .meta-row, .two-col, .text-screens, .text-image { grid-template-columns: 1fr; gap: 32px; }
+            .stats-row { grid-template-columns: 1fr; gap: 32px; }
+            .text-screens .screens-col { flex-wrap: wrap; }
+            .text-screens .screens-col .ph-screen { width: 45%; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="name">Charlotte Carr</a>
+    <a href="index.html" class="back">← Back</a>
+</nav>
+
+<div class="statement">
+    <h1>I designed a wearable intervention and companion app for people who compulsively pull their hair, and validated it with real users before any hardware was built.</h1>
+</div>
+
+<div class="meta-row">
+    <div class="meta-col">
+        <h3>My role</h3>
+        <p>Co-designer and co-researcher</p>
+        <p>Companion app design (Figma)</p>
+        <p>Wearable prototype and study design</p>
+        <p>Wizard-of-Oz study facilitation</p>
+        <p>Thematic analysis of user interviews</p>
+    </div>
+    <div class="meta-col">
+        <h3>Outcomes</h3>
+        <p>Hair-directed behaviours dropped from 8.25 to 3.50 avg per session</p>
+        <p>All 8 participants said the intervention helped</p>
+        <p>All expressed interest in continued use</p>
+        <p>Concept validated without building custom hardware</p>
+    </div>
+</div>
+
+<!-- Hero: polished app screens -->
+<div class="full-img">
+    <!-- <img src="images/trichy-hero.jpg" alt="Trichy app screens"> -->
+    <div class="ph"><code>images/trichy-hero.jpg</code>The polished purple app screens from image 3: composite of home, pull selection, journal, community, insights, statistics<br>Use a clean arrangement on white/light background, 1600px+ wide</div>
+</div>
+
+<!-- ======= DECISION 1: Validate before you build ======= -->
+<div class="text-block">
+    <h2>We didn't have the budget or expertise to build a custom wearable. So we used a dog collar.</h2>
+    <p>Trichotillomania treatments like habit reversal training require regular clinic visits and don't help in the moment when pulling actually happens. We wanted to test whether a real-time haptic alert on the wrist could disrupt the behaviour as it occurs. But we weren't hardware engineers and didn't have a budget for custom devices.</p>
+    <p>We bought a vibrating dog training collar, put it on participants' wrists, and used Wizard-of-Oz testing: we watched for hair-directed behaviours and triggered the vibration manually. This let us test the interaction pattern without building the technology. The prototype was uncomfortable and every participant said so. That wasn't the point. The point was to find out if the concept works before investing in something expensive.</p>
+</div>
+
+<div class="text-image">
+    <div class="text-col">
+        <h2>The prototype was scrappy. The insight it produced was not.</h2>
+        <p>We induced stress through trivia (country flags, company logos) and observed how many times participants reached for their hair. First round was baseline. Second round had the vibrating collar active.</p>
+        <p>Behaviours dropped from an average of 8.25 to 3.50. Not statistically significant with 8 people (p=.08), but every single participant reported it helped them self-regulate. One participant with a formal trichotillomania diagnosis said the bracelet was better than having another person hold you accountable because it removed the social shame.</p>
+    </div>
+    <div class="img-col">
+        <!-- <img src="images/trichy-collar-photos.jpg" alt="Dog collar prototype"> -->
+        <div class="ph" style="padding:80px 24px"><code>images/trichy-collar-photos.jpg</code><br>Side by side: the dog collar device and the collar worn on a participant's wrist</div>
+    </div>
+</div>
+
+<div class="stats-row">
+    <div class="stat-item">
+        <div class="num">8.25 → 3.50</div>
+        <div class="label">Avg hair-directed behaviours before vs. after</div>
+    </div>
+    <div class="stat-item">
+        <div class="num">8 / 8</div>
+        <div class="label">Said the intervention helped</div>
+    </div>
+    <div class="stat-item">
+        <div class="num">0</div>
+        <div class="label">Custom hardware required to validate the concept</div>
+    </div>
+</div>
+
+<!-- ======= WIREFRAMES: the process ======= -->
+<div class="text-block">
+    <h2>I started with wireframes to map out every screen before touching visual design.</h2>
+    <p>The companion app needed to support the bracelet intervention with long-term tracking, self-awareness tools, and community features. I mapped out the full information architecture in low-fidelity first: welcome flow, pull logging, diary entries with mood tracking, community forum, data pages with graphs and statistics, haptic feedback settings.</p>
+</div>
+
+<!-- Full-bleed: wireframes -->
+<div class="full-img">
+    <!-- <img src="images/trichy-wireframes.jpg" alt="Wireframe screens from Figma"> -->
+    <div class="ph"><code>images/trichy-wireframes.jpg</code>Your wireframe screens from image 2 (the dark Figma screenshot with all the lo-fi screens)<br>Full width, showing the complete information architecture</div>
+</div>
+
+<!-- ======= POLISHED SCREENS: Karolis-style text + app mockups ======= -->
+<div class="text-screens">
+    <div class="text-col">
+        <h2>The companion app tracks progress, logs behaviour, and connects users to a community.</h2>
+        <p>The app works with or without the bracelet. Core features include a pull-free progress timer, body area selection for logging where pulling happens, mood journaling linked to behaviour, and data insights showing patterns over time.</p>
+        <p>I designed a community forum because isolation is a major barrier to managing trichotillomania. Users can share tips, celebrate streaks, and support each other. The forum has categories (trending, casual, tips and tricks, support) to keep it organized without feeling clinical.</p>
+    </div>
+    <div class="screens-col">
+        <!--
+            Replace each .ph-screen with an <img> tag:
+            <img src="images/trichy-screen-1.jpg" alt="Home">
+            Use the individual polished purple screens from image 3
+        -->
+        <div class="ph-screen">Home<br><code>trichy-screen-1.jpg</code></div>
+        <div class="ph-screen">Pull log<br><code>trichy-screen-2.jpg</code></div>
+        <div class="ph-screen">Community<br><code>trichy-screen-3.jpg</code></div>
+        <div class="ph-screen">Insights<br><code>trichy-screen-4.jpg</code></div>
+    </div>
+</div>
+
+<!-- ======= KEY DESIGN DECISION: the streak counter ======= -->
+<div class="text-screens">
+    <div class="text-col">
+        <h2>The hardest design decision: what happens when someone's streak resets to zero?</h2>
+        <p>A "you haven't pulled in X days" counter sounds motivating. But participant P8 pointed out that seeing it reset to zero after a setback could be deeply discouraging, especially for a condition that naturally involves relapse. I designed alternatives: showing the longest streak instead of the current one, framing resets as "days since last incident" rather than lost progress, and adding positive affirmations when the counter resets.</p>
+        <p>The principle: treat relapse as a data point, not a failure. Progress in mental health isn't linear, and the design needed to reflect that without being patronizing.</p>
+    </div>
+    <div class="screens-col">
+        <div class="ph-screen">Streak active<br><code>trichy-screen-5.jpg</code></div>
+        <div class="ph-screen">Streak reset<br><code>trichy-screen-6.jpg</code></div>
+        <div class="ph-screen">Journal<br><code>trichy-screen-7.jpg</code></div>
+        <div class="ph-screen">Statistics<br><code>trichy-screen-8.jpg</code></div>
+    </div>
+</div>
+
+<div class="quote-block">
+    <blockquote>"The haptic feedback helped promote accountability of the hair pulling behaviours and it was preferred over having another person keep you accountable."</blockquote>
+    <div class="attr">P8 (formally diagnosed with trichotillomania)</div>
+</div>
+
+<!-- ======= WHAT I'D DO DIFFERENTLY ======= -->
+<div class="text-block">
+    <h2>What I'd do differently next time.</h2>
+    <p>The biggest gap: one participant started using their other hand to pull while wearing the device. A single wrist device isn't enough. Research on similar interventions shows that two bracelets brought face-touching behaviours to almost zero. A ring form factor would also solve the comfort problems every participant mentioned.</p>
+    <p>The trivia stress induction was mild (ethics board constraints). Real-world stressors would trigger stronger pulling urges, which means the intervention effect could be even stronger in practice than what we measured. A longer study with more participants and real daily use would give much better data on whether the behaviour change persists.</p>
+</div>
+
+<div class="case-bottom">
+    <a href="index.html">← Back to all work</a>
+    <span class="vibe-note">Vibe-coded with Claude, just for Ramp</span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybercrime Reporting Chatbot — Charlotte Carr</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        ::selection { background: #D6382E; color: #fff; }
+        body { font-family: 'DM Sans', sans-serif; background: #fff; color: #111; -webkit-font-smoothing: antialiased; }
+        a { color: inherit; text-decoration: none; }
+
+        nav { padding: 32px 48px; display: flex; justify-content: space-between; align-items: center; }
+        nav .name { font-size: 14px; font-weight: 500; }
+        nav .back { font-size: 14px; color: #aaa; transition: color 0.3s; }
+        nav .back:hover { color: #111; }
+
+        .statement { padding: 80px 48px 60px; max-width: 1100px; }
+        .statement h1 { font-family: 'DM Serif Display', serif; font-size: clamp(32px, 4.5vw, 56px); font-weight: 400; line-height: 1.3; }
+
+        .meta-row { padding: 0 48px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; max-width: 1100px; }
+        .meta-col h3 { font-size: 15px; font-weight: 500; color: #111; margin-bottom: 16px; }
+        .meta-col p { font-size: 15px; color: #666; line-height: 1.8; }
+
+        .full-img { width: 100%; background: #F0EEEA; overflow: hidden; position: relative; }
+        .full-img img { width: 100%; display: block; }
+        .full-img .ph { padding: 120px 48px; font-size: 13px; color: #bbb; text-align: center; }
+        .full-img .ph code { display: block; font-size: 12px; background: #e6e3dd; padding: 4px 14px; border-radius: 3px; color: #999; width: fit-content; margin: 0 auto 8px; }
+
+        .text-block { padding: 100px 48px 40px; }
+        .text-block h2 { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 4vw, 52px); font-weight: 400; line-height: 1.25; margin-bottom: 32px; }
+        .text-block p { font-size: 15px; color: #666; line-height: 1.9; margin-bottom: 20px; max-width: 680px; }
+
+        .two-col { padding: 0 48px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; max-width: 1100px; }
+        .two-col p { font-size: 15px; color: #666; line-height: 1.9; }
+
+        .text-image { padding: 0 48px 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+        .text-image .text-col p { font-size: 15px; color: #666; line-height: 1.9; margin-bottom: 20px; }
+        .text-image .text-col h2 { font-family: 'DM Serif Display', serif; font-size: clamp(26px, 3.5vw, 46px); font-weight: 400; line-height: 1.3; margin-bottom: 24px; color: #111; }
+        .text-image .img-col { background: #F0EEEA; overflow: hidden; border-radius: 4px; }
+        .text-image .img-col img { width: 100%; display: block; }
+
+        .img-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+        .img-pair > div { background: #F0EEEA; overflow: hidden; min-height: 400px; position: relative; }
+        .img-pair img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .stats-row { padding: 0 48px 100px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px; max-width: 1100px; }
+        .stat-item .num { font-family: 'DM Serif Display', serif; font-size: 36px; font-weight: 400; color: #111; margin-bottom: 8px; }
+        .stat-item .label { font-size: 13px; color: #999; line-height: 1.6; }
+
+        .quote-block { padding: 80px 48px; max-width: 900px; }
+        .quote-block blockquote { font-family: 'DM Serif Display', serif; font-size: clamp(22px, 2.5vw, 32px); font-weight: 400; font-style: italic; line-height: 1.5; }
+        .quote-block .attr { margin-top: 16px; font-size: 14px; color: #999; }
+
+        .case-bottom { padding: 60px 48px; border-top: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
+        .case-bottom a { font-size: 14px; color: #aaa; transition: color 0.3s; }
+        .case-bottom a:hover { color: #111; }
+        .vibe-note { font-size: 12px; font-style: italic; color: #ddd; transition: color 0.5s; cursor: default; }
+        .vibe-note:hover { color: #999; }
+
+        @media (max-width: 800px) {
+            nav, .statement, .meta-row, .text-block, .two-col, .text-image, .stats-row, .quote-block, .case-bottom { padding-left: 24px; padding-right: 24px; }
+            .meta-row, .two-col, .text-image { grid-template-columns: 1fr; gap: 32px; }
+            .stats-row { grid-template-columns: 1fr 1fr; gap: 32px; }
+            .img-pair { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="name">Charlotte Carr</a>
+    <a href="index.html" class="back">← Back</a>
+</nav>
+
+<div class="statement">
+    <h1>Canada's national cybercrime agency needed an AI reporting tool. I designed, built, and validated one in 8 months as the sole designer on the project.</h1>
+</div>
+
+<div class="meta-row">
+    <div class="meta-col">
+        <h3>My role</h3>
+        <p>Sole designer and researcher</p>
+        <p>Survey design and execution</p>
+        <p>Chatbot design and development</p>
+        <p>Usability study design and facilitation</p>
+        <p>Handover documentation for continuity</p>
+    </div>
+    <div class="meta-col">
+        <h3>Outcomes</h3>
+        <p>Chatbot reports were 84% complete vs. 75% for the form (p=0.028)</p>
+        <p>58% of users preferred the chatbot overall</p>
+        <p>Paper submitted to SOUPS 2026</p>
+        <p>Thesis nominated for University Medal</p>
+        <p>Agency never expected to have a testable prototype</p>
+    </div>
+</div>
+
+<!-- Hero image: chatbot UI -->
+<div class="full-img">
+    <!-- <img src="images/nc3-chatbot-ui.jpg" alt="Chatbot conversation interface"> -->
+    <div class="ph"><code>images/nc3-chatbot-ui.jpg</code>The chatbot conversation UI that users interacted with<br>Screenshot of the actual Typebot chat interface</div>
+</div>
+
+<!-- ======= DECISION 1: Start with research, not assumptions ======= -->
+<div class="text-block">
+    <h2>The agency wanted to jump straight to building. I pushed to understand the problem first.</h2>
+    <p>The NC3 had an idea for an AI chatbot but no data on why people don't report in the first place. Their internal process for running a survey would have taken months of panel clearance. I proposed Prolific instead: cheaper, faster, and we'd have data in weeks not months. 204 participants later, we had a clear picture that changed the entire product direction.</p>
+    <p>The biggest insight: the time and effort required to report was a stronger predictor of whether someone reports than the actual financial loss. A $3,000 investment scam and a $300 shopping scam had similar reporting likelihood. This meant the product needed to focus entirely on reducing friction, not on convincing people the incident was "serious enough" to report.</p>
+</div>
+
+<!-- ======= DECISION 2: Narrative-first, not form-first ======= -->
+<div class="text-image">
+    <div class="text-col">
+        <h2>I designed the chatbot to let people tell their story before asking structured questions.</h2>
+        <p>Traditional reporting forms front-load structured fields: checkboxes, dropdowns, categories. But when someone has just been scammed, they don't think in categories. They think in narrative. "This person called me and said I owed money and I panicked and bought a gift card."</p>
+        <p>The chatbot opens with "tell me what happened in your own words," then uses GPT-4 to identify what type of incident it is and ask targeted follow-up questions for the specific details law enforcement needs. The user never has to figure out which box they fit in. The system figures it out for them.</p>
+    </div>
+    <div class="img-col">
+        <!-- <img src="images/nc3-chat-narrative.jpg" alt="Chatbot narrative input"> -->
+        <div class="ph" style="padding:80px 24px"><code>images/nc3-chat-narrative.jpg</code><br>Chatbot showing the "tell me what happened" prompt and user narrative input</div>
+    </div>
+</div>
+
+<!-- Full-bleed: form vs chatbot side by side -->
+<div class="img-pair">
+    <div>
+        <!-- <img src="images/nc3-form.jpg" alt="Form interface"> -->
+        <div class="ph" style="padding:100px 24px"><code>images/nc3-form.jpg</code><br>The traditional form interface with checkboxes and categories</div>
+    </div>
+    <div>
+        <!-- <img src="images/nc3-chatbot.jpg" alt="Chatbot interface"> -->
+        <div class="ph" style="padding:100px 24px"><code>images/nc3-chatbot.jpg</code><br>The chatbot interface with conversational flow</div>
+    </div>
+</div>
+
+<!-- ======= DECISION 3: Two paths, not one ======= -->
+<div class="text-image">
+    <div class="text-col">
+        <h2>Not every report needs the same depth. I designed two paths based on incident type.</h2>
+        <p>A phishing email and a $3,000 investment fraud are both cybercrime, but they need very different amounts of information to be useful to investigators. I built the AI to classify the incident from the user's narrative and route them accordingly: a quick path for spam, phishing, and suspicious messages, and a detailed path for fraud and financial loss.</p>
+        <p>The detailed path uses AI to check what the user already shared and only asks about what's missing. The quick path asks up to four follow-up questions then wraps up. In both cases, the AI uses an internal signal ("OK, NEXT QUESTION") to advance the conversation without visible buttons, keeping the flow feeling natural.</p>
+    </div>
+    <div class="img-col">
+        <!-- <img src="images/nc3-typebot-flow.jpg" alt="Typebot flow builder"> -->
+        <div class="ph" style="padding:80px 24px"><code>images/nc3-typebot-flow.jpg</code><br>Typebot flow builder showing the branching logic and AI blocks</div>
+    </div>
+</div>
+
+<!-- ======= DECISION 4: Calibrated empathy ======= -->
+<div class="text-block">
+    <h2>Usability testing taught me that empathy has a threshold. Go past it and people get annoyed.</h2>
+    <p>In early testing, the chatbot was warm and reassuring at every turn. Some users appreciated it. Others found it performative. One participant said flatly: "I don't need you, AI chatbots, sympathizing with me." Another participant who did value the empathy said it "kind of makes our sense of victimization feel like it's been heard, even though it hasn't, because it's a computer."</p>
+    <p>I calibrated the tone to be supportive at key moments (the opening, after the user shares their story, at the end) but direct and efficient everywhere else. Match the user's energy: if they write a short answer, give a short reply. If they write a paragraph, acknowledge it properly. Don't be warm for warmth's sake.</p>
+</div>
+
+<!-- ======= DECISION 5: Evidence timing ======= -->
+<div class="text-block">
+    <h2>I placed evidence upload at the end, not the beginning.</h2>
+    <p>The existing form asks for screenshots and documents early in the process. For someone who's just been scammed and is already unsure whether this is worth reporting, being asked to dig through their inbox for evidence before they've even told their story creates a wall. I moved evidence collection to after the narrative and follow-up questions. By that point, the user has already invested in the report and the ask feels reasonable rather than intimidating.</p>
+</div>
+
+<!-- ======= WHAT I LEARNED FROM USERS ======= -->
+<div class="text-image">
+    <div class="text-col">
+        <h2>The most surprising finding: reporting can feel like the scam itself.</h2>
+        <p>One participant in the CRA gift card scenario hesitated when the chatbot asked for the gift card number. "I've just been scammed by giving a stranger a gift card number and I'm worried to do this again now." She understood intellectually that the chatbot needed it for the investigation, but the interaction pattern felt uncomfortably similar to the scam.</p>
+        <p>This is the kind of insight you only get from putting a working prototype in front of real people. No amount of wireframe review would surface it. It reshaped how I think about trust in AI interfaces: the context of the interaction matters as much as the content.</p>
+    </div>
+    <div class="img-col">
+        <!-- <img src="images/nc3-usability-chart.jpg" alt="Usability comparison"> -->
+        <div class="ph" style="padding:80px 24px"><code>images/nc3-usability-chart.jpg</code><br>Ease of use and satisfaction comparison chart from the usability study</div>
+    </div>
+</div>
+
+<div class="stats-row">
+    <div class="stat-item">
+        <div class="num">84%</div>
+        <div class="label">Report completeness with chatbot</div>
+    </div>
+    <div class="stat-item">
+        <div class="num">75%</div>
+        <div class="label">Report completeness with form</div>
+    </div>
+    <div class="stat-item">
+        <div class="num">6.46/7</div>
+        <div class="label">Chatbot ease of use rating</div>
+    </div>
+    <div class="stat-item">
+        <div class="num">58%</div>
+        <div class="label">Preferred the chatbot overall</div>
+    </div>
+</div>
+
+<div class="quote-block">
+    <blockquote>"It felt like talking to a customer service representative... it basically guided you step by step."</blockquote>
+    <div class="attr">Usability study participant</div>
+</div>
+
+<!-- ======= WHAT I SHIPPED ======= -->
+<div class="text-block">
+    <h2>I shipped the prototype, the research, and a 16-page handover document so the team could keep building without me.</h2>
+    <p>The handover documentation included a step-by-step guide to rebuilding the chatbot from scratch, the exact AI prompts I wrote, explanations of how Typebot works for non-technical team members, and tips for maintaining reliability. I wrote it for an audience that might never have built a chatbot before, because the people continuing this work probably haven't.</p>
+    <p>The agency expected, at most, the foundational survey. I delivered the survey, a working AI prototype, statistically significant usability results, and documentation for continuity. In about 8 months, by myself, while also TAing and finishing my degree.</p>
+</div>
+
+<div class="case-bottom">
+    <a href="index.html">← Back to all work</a>
+    <span class="vibe-note">Vibe-coded with Claude, just for Ramp</span>
+</div>
+
+</body>
+</html>

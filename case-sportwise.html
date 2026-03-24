@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportWise Community DataSpaces — Charlotte Carr</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        ::selection { background: #D6382E; color: #fff; }
+        body { font-family: 'DM Sans', sans-serif; background: #fff; color: #111; -webkit-font-smoothing: antialiased; }
+        a { color: inherit; text-decoration: none; }
+
+        nav { padding: 32px 48px; display: flex; justify-content: space-between; align-items: center; }
+        nav .name { font-size: 14px; font-weight: 500; }
+        nav .back { font-size: 14px; color: #aaa; transition: color 0.3s; }
+        nav .back:hover { color: #111; }
+
+        .statement { padding: 80px 48px 60px; max-width: 1100px; }
+        .statement h1 { font-family: 'DM Serif Display', serif; font-size: clamp(32px, 4.5vw, 56px); font-weight: 400; line-height: 1.3; }
+
+        .meta-row { padding: 0 48px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; max-width: 1100px; }
+        .meta-col h3 { font-size: 15px; font-weight: 500; color: #111; margin-bottom: 16px; }
+        .meta-col p { font-size: 15px; color: #666; line-height: 1.8; }
+
+        .full-img { width: 100%; background: #F0EEEA; overflow: hidden; position: relative; }
+        .full-img img { width: 100%; display: block; }
+        .full-img .ph { padding: 120px 48px; font-size: 13px; color: #bbb; text-align: center; }
+        .full-img .ph code { display: block; font-size: 12px; background: #e6e3dd; padding: 4px 14px; border-radius: 3px; color: #999; width: fit-content; margin: 0 auto 8px; }
+
+        .text-block { padding: 100px 48px 40px; }
+        .text-block h2 { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 4vw, 52px); font-weight: 400; line-height: 1.25; margin-bottom: 32px; }
+        .text-block p { font-size: 15px; color: #666; line-height: 1.9; margin-bottom: 20px; max-width: 680px; }
+
+        .two-col { padding: 0 48px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; max-width: 1100px; }
+        .two-col p { font-size: 15px; color: #666; line-height: 1.9; }
+
+        .text-image { padding: 0 48px 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+        .text-image .text-col p { font-size: 15px; color: #666; line-height: 1.9; margin-bottom: 20px; }
+        .text-image .text-col h2 { font-family: 'DM Serif Display', serif; font-size: clamp(26px, 3.5vw, 46px); font-weight: 400; line-height: 1.3; margin-bottom: 24px; color: #111; }
+        .text-image .img-col { background: #F0EEEA; overflow: hidden; border-radius: 4px; }
+        .text-image .img-col img { width: 100%; display: block; }
+
+        .img-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+        .img-pair > div { background: #F0EEEA; overflow: hidden; min-height: 400px; position: relative; }
+        .img-pair img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .stats-row { padding: 0 48px 100px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px; max-width: 1100px; }
+        .stat-item .num { font-family: 'DM Serif Display', serif; font-size: 36px; font-weight: 400; color: #111; margin-bottom: 8px; }
+        .stat-item .label { font-size: 13px; color: #999; line-height: 1.6; }
+
+        .quote-block { padding: 80px 48px; max-width: 900px; }
+        .quote-block blockquote { font-family: 'DM Serif Display', serif; font-size: clamp(22px, 2.5vw, 32px); font-weight: 400; font-style: italic; line-height: 1.5; }
+        .quote-block .attr { margin-top: 16px; font-size: 14px; color: #999; }
+
+        .case-bottom { padding: 60px 48px; border-top: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
+        .case-bottom a { font-size: 14px; color: #aaa; transition: color 0.3s; }
+        .case-bottom a:hover { color: #111; }
+        .vibe-note { font-size: 12px; font-style: italic; color: #ddd; transition: color 0.5s; cursor: default; }
+        .vibe-note:hover { color: #999; }
+
+        @media (max-width: 800px) {
+            nav, .statement, .meta-row, .text-block, .two-col, .text-image, .stats-row, .quote-block, .case-bottom { padding-left: 24px; padding-right: 24px; }
+            .meta-row, .two-col, .text-image { grid-template-columns: 1fr; gap: 32px; }
+            .stats-row { grid-template-columns: 1fr 1fr; gap: 32px; }
+            .img-pair { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="name">Charlotte Carr</a>
+    <a href="index.html" class="back">← Back</a>
+</nav>
+
+<div class="statement">
+    <h1>A sports data startup needed a community marketplace designed and validated in 6 weeks. I led the UX design from research through shipped UI.</h1>
+</div>
+
+<div class="meta-row">
+    <div class="meta-col">
+        <h3>My role</h3>
+        <p>Lead UX designer on a team of two designers, two product managers, and a developer</p>
+        <p>End-to-end feature design in Figma</p>
+        <p>Survey design, user interviews, and usability testing</p>
+        <p>Competitive analysis and heuristic evaluation</p>
+        <p>Customer journey mapping</p>
+    </div>
+    <div class="meta-col">
+        <h3>Outcomes</h3>
+        <p>Community DataSpaces marketplace designed and handed off to dev for production build</p>
+        <p>Comment system shipped with full state coverage across desktop and mobile</p>
+        <p>Core data selection flow redesigned based on research findings</p>
+        <p>Designs built in React and Material UI by the developer during the engagement</p>
+    </div>
+</div>
+
+<!-- Hero image -->
+<div class="full-img">
+    <!-- <img src="images/sportwise-hero.jpg" alt="SportWise Community DataSpaces UI"> -->
+    <div class="ph"><code>images/sportwise-hero.jpg</code>Community DataSpaces browse screen with DataSpace cards, filter panel, and illustrated onboarding character<br>Use the Intro 3 / browse screen from Figma, or a composite of the best screens</div>
+</div>
+
+<!-- ======= CONTEXT: The product and the problem ======= -->
+<div class="text-block">
+    <h2>SportWise let sports fans build custom data models without code. But the experience dead-ended after they built one.</h2>
+    <p>SportWise by Rolling Insights was a live product that let fantasy sports and sports betting enthusiasts pull real-time data into customizable workspaces called DataSpaces. Think of it as a no-code alternative to the spreadsheets that serious sports fans were already maintaining by hand. The product had real users, a subscription model, and a development team building in React.</p>
+    <p>The client's hypothesis was that users wanted community: a marketplace where analysts and power users could publish their DataSpaces as templates for others to copy and customize. Our job was to validate that hypothesis and design the feature. But first, I needed to understand what was already happening in the product.</p>
+</div>
+
+<!-- ======= JOURNEY MAP: Setting the scene ======= -->
+<div class="full-img">
+    <!-- <img src="images/sportwise-journey-map.jpg" alt="Customer journey map"> -->
+    <div class="ph"><code>images/sportwise-journey-map.jpg</code>The customer journey map showing the full user flow from sign up through DataSpace creation and beyond<br>Use the journey map PDF — full width, showing the emotion curve and pain points across all phases</div>
+</div>
+
+<div class="text-block">
+    <h2>I mapped the full user journey and found the experience essentially ended after someone created their first DataSpace.</h2>
+    <p>The journey map surfaced something the client hadn't considered: there was no "what's next" after a user built their first DataSpace. No prompt to explore other models, no suggestion to share their work, no guidance on what to do with the data they'd assembled. The emotional arc went from curious to confused to accomplished to... nothing. The "After Viewing" column of the journey map was almost entirely empty.</p>
+    <p>This reframed the entire project. Community DataSpaces wasn't just a nice-to-have social feature. It was the answer to retention: give users somewhere to go after they've built something, and give new users a reason to stay before they've built anything.</p>
+</div>
+
+<!-- ======= AUDIT: Existing product was broken ======= -->
+<div class="text-image">
+    <div class="text-col">
+        <h2>Before designing anything new, I audited the existing onboarding and found it was full of blockers.</h2>
+        <p>I walked through the entire onboarding flow as a first-time user and severity-coded every issue. The sign-up page had no social login and a fake "forgot password" button. The home page used icon-only navigation that colorblind users couldn't parse. The data selection screen used abbreviations when there was room to spell them out. The database join screen gave zero explanation of what an "anchor" was.</p>
+        <p>The audit gave us credibility with the client and reshaped the scope. Any new feature we designed needed to avoid the same mistakes, and the worst existing issues needed to be fixed in parallel or the new feature wouldn't matter.</p>
+    </div>
+    <div class="img-col">
+        <!-- <img src="images/sportwise-audit.jpg" alt="Onboarding audit with severity coding"> -->
+        <div class="ph" style="padding:80px 24px"><code>images/sportwise-audit.jpg</code><br>Screenshot from the onboarding audit deliverable showing a screen with red/orange/yellow severity annotations</div>
+    </div>
+</div>
+
+<!-- ======= RESEARCH: Survey + Interviews ======= -->
+<div class="text-block">
+    <h2>I co-designed a survey, recruited through sports subreddits, and facilitated user interviews to validate the community concept.</h2>
+    <p>The client assumed users wanted to share their DataSpaces. We didn't know if that was true, what "community" meant to sports data users, or what would motivate someone to publish their model for others to copy. I co-designed a survey covering fantasy sports habits, sports betting behaviour, and analytics tool usage. We distributed it through sports subreddits and personal networks and had 26 responses in five days.</p>
+    <p>The data was instructive. Interest in browsing community DataSpaces was moderate (4.9/10) and willingness to share was lower (3.9/10). But the top-requested feature was search and filtering (4.1/5). That told us: if we build this, discoverability matters more than social features. I then facilitated paid interviews ($50 gift cards) with users who opted in, testing design concepts and digging into their real workflows with tools like Excel, Sleeper, and DraftKings.</p>
+</div>
+
+<div class="stats-row">
+    <div class="stat-item">
+        <div class="num">26</div>
+        <div class="label">Survey respondents in 5 days</div>
+    </div>
+    <div class="stat-item">
+        <div class="num">4.8/10</div>
+        <div class="label">Navigation comprehension score</div>
+    </div>
+    <div class="stat-item">
+        <div class="num">7.0/10</div>
+        <div class="label">Data terminology comprehension</div>
+    </div>
+    <div class="stat-item">
+        <div class="num">4.1/5</div>
+        <div class="label">Search & filter rated top priority feature</div>
+    </div>
+</div>
+
+<!-- ======= DATA SELECTION REDESIGN ======= -->
+<div class="text-block">
+    <h2>The existing data selection page was the biggest drop-off point. I redesigned it with a clear hierarchy and a progress stepper.</h2>
+    <p>The old UI showed all data sources at once with their fields in a flat list. Users couldn't tell what they'd already selected, what a "join" was, or what would happen when they clicked "Create DataSpace." Our survey confirmed users found the sports terminology manageable (7.0/10) but the navigation and layout confusing (4.8/10).</p>
+    <p>I redesigned the flow with collapsible data source cards, a sidebar showing selections in real time, and a progress stepper that made selecting data, choosing fields, and joining sources feel like distinct steps rather than one overwhelming page. The new design also added a guided tooltip overlay for first-time users, borrowing from the onboarding pattern I was developing in parallel for Community DataSpaces.</p>
+</div>
+
+<!-- Full-bleed: before/after data selection -->
+<div class="img-pair">
+    <div>
+        <!-- <img src="images/sportwise-old-ui.jpg" alt="Old data selection UI"> -->
+        <div class="ph" style="padding:100px 24px"><code>images/sportwise-old-ui.jpg</code><br>The old data selection interface — cramped, confusing field layout</div>
+    </div>
+    <div>
+        <!-- <img src="images/sportwise-new-ui.jpg" alt="Redesigned data selection UI"> -->
+        <div class="ph" style="padding:100px 24px"><code>images/sportwise-new-ui.jpg</code><br>The redesigned data selection — cleaner hierarchy, collapsible sections, guided stepper</div>
+    </div>
+</div>
+
+<!-- ======= COMMUNITY DATASPACES: The big feature ======= -->
+<div class="text-image">
+    <div class="text-col">
+        <h2>I designed three onboarding paths for the marketplace and tested them against each other in interviews.</h2>
+        <p>Community DataSpaces needed to teach first-time users what a shared DataSpace was, show them what was available, and get them to copy one into their own workspace. I designed three variations: a guided walkthrough with an illustrated character pointing out each section step by step, a lighter version with less hand-holding, and a minimal version that dropped users straight into the browse view with a single tooltip.</p>
+        <p>We tested all three in user interviews. The guided version scored highest for first-time comprehension, but users said they'd want to skip it on return visits. The final design used the guided intro on first visit with a dismissible flow, then defaulted to the clean browse interface after that. The browse view prioritized search, filtering, and sort — the features our survey told us mattered most.</p>
+    </div>
+    <div class="img-col">
+        <!-- <img src="images/sportwise-onboarding-paths.jpg" alt="Three onboarding path variations"> -->
+        <div class="ph" style="padding:80px 24px"><code>images/sportwise-onboarding-paths.jpg</code><br>Side-by-side of the three Community DataSpaces onboarding intro screens (Intro 1, 2, 3 from Figma)</div>
+    </div>
+</div>
+
+<!-- ======= COMMENT SYSTEM: Community engagement ======= -->
+<div class="text-block">
+    <h2>A marketplace without conversation is just a library. I designed a comment system to make Community DataSpaces feel alive.</h2>
+    <p>The survey and interviews told us that sports fans are inherently social: 69% followed athletes and teams on social media, and the most engaged users were already discussing strategies on Reddit and Discord. If Community DataSpaces was going to work, users needed to be able to react to each other's models, ask questions, share tips, and build on each other's ideas. A static browse-and-copy experience wouldn't generate the return visits the product needed.</p>
+</div>
+
+<div class="text-image">
+    <div class="text-col">
+        <h2>I mapped every interaction state before handing off a single screen to the developer.</h2>
+        <p>The comment system needed to work across desktop and mobile with full coverage of every state: default thread view, active reply with inline compose, edit mode for your own comments, and a delete confirmation modal for destructive actions. On mobile, I adapted the layout for thumb-reach while keeping the same interaction logic so the developer could reuse component patterns.</p>
+        <p>I designed it as a complete spec: every state accounted for, clear visual hierarchy showing which comment was being replied to, and no ambiguity about edge cases. The developer could build directly from the Figma file without back-and-forth.</p>
+    </div>
+    <div class="img-col">
+        <!-- <img src="images/sportwise-comments.jpg" alt="Comment system states"> -->
+        <div class="ph" style="padding:80px 24px"><code>images/sportwise-comments.jpg</code><br>Comment system showing desktop default, active reply, delete modal, and mobile states</div>
+    </div>
+</div>
+
+<!-- ======= WHAT I SHIPPED ======= -->
+<div class="text-block">
+    <h2>Six weeks. A full feature, a product audit, a redesigned core flow, and a comment system — all designed and in development.</h2>
+    <p>The developer on our team built the front-end in React and Material UI while I was designing. Handoff was continuous: I'd finalize screens in Figma, walk through the interactions, and iterate based on what was technically feasible. The client presented our work at the final capstone demo night to an audience of industry partners.</p>
+    <p>Looking back, the biggest thing I'd do differently is push for a larger survey sample. Twenty-six respondents gave us directional data, but the Community DataSpaces interest scores were lukewarm enough that a bigger sample might have changed the feature's priority entirely. Sometimes the most valuable research finding is "maybe don't build this yet" — and I'd want stronger data before making that call.</p>
+</div>
+
+<div class="case-bottom">
+    <a href="index.html">← Back to all work</a>
+    <span class="vibe-note">Vibe-coded with Claude, just for Ramp</span>
+</div>
+
+</body>
+</html>
