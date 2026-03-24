@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claims Documentation Redesign — Charlotte Carr</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        ::selection { background: #D6382E; color: #fff; }
+        body { font-family: 'DM Sans', sans-serif; background: #fff; color: #111; -webkit-font-smoothing: antialiased; }
+        a { color: inherit; text-decoration: none; }
+
+        nav { padding: 32px 48px; display: flex; justify-content: space-between; align-items: center; }
+        nav .name { font-size: 14px; font-weight: 500; }
+        nav .back { font-size: 14px; color: #aaa; transition: color 0.3s; }
+        nav .back:hover { color: #111; }
+
+        .statement { padding: 80px 48px 60px; max-width: 1100px; }
+        .statement h1 { font-family: 'DM Serif Display', serif; font-size: clamp(32px, 4.5vw, 56px); font-weight: 400; line-height: 1.3; }
+
+        .meta-row { padding: 0 48px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; max-width: 1100px; }
+        .meta-col h3 { font-size: 15px; font-weight: 500; color: #111; margin-bottom: 16px; }
+        .meta-col p { font-size: 15px; color: #666; line-height: 1.8; }
+
+        .full-img { width: 100%; background: #F0EEEA; overflow: hidden; position: relative; }
+        .full-img img { width: 100%; display: block; }
+        .full-img .ph { padding: 120px 48px; font-size: 13px; color: #bbb; text-align: center; }
+        .full-img .ph code { display: block; font-size: 12px; background: #e6e3dd; padding: 4px 14px; border-radius: 3px; color: #999; width: fit-content; margin: 0 auto 8px; }
+
+        .text-block { padding: 100px 48px 40px; }
+        .text-block h2 { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 4vw, 52px); font-weight: 400; line-height: 1.25; margin-bottom: 32px; }
+        .text-block p { font-size: 15px; color: #666; line-height: 1.9; margin-bottom: 20px; max-width: 680px; }
+
+        .two-col { padding: 0 48px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; max-width: 1100px; }
+        .two-col p { font-size: 15px; color: #666; line-height: 1.9; }
+
+        .text-image { padding: 0 48px 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+        .text-image .text-col p { font-size: 15px; color: #666; line-height: 1.9; margin-bottom: 20px; }
+        .text-image .text-col h2 { font-family: 'DM Serif Display', serif; font-size: clamp(26px, 3.5vw, 46px); font-weight: 400; line-height: 1.3; margin-bottom: 24px; color: #111; }
+        .text-image .img-col { background: #F0EEEA; overflow: hidden; border-radius: 4px; }
+        .text-image .img-col img { width: 100%; display: block; }
+
+        .img-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+        .img-pair > div { background: #F0EEEA; overflow: hidden; min-height: 400px; position: relative; }
+        .img-pair img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .stats-row { padding: 0 48px 100px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; max-width: 1100px; }
+        .stat-item .num { font-family: 'DM Serif Display', serif; font-size: 36px; font-weight: 400; color: #111; margin-bottom: 8px; }
+        .stat-item .label { font-size: 13px; color: #999; line-height: 1.6; }
+
+        .quote-block { padding: 80px 48px; max-width: 900px; }
+        .quote-block blockquote { font-family: 'DM Serif Display', serif; font-size: clamp(22px, 2.5vw, 32px); font-weight: 400; font-style: italic; line-height: 1.5; }
+        .quote-block .attr { margin-top: 16px; font-size: 14px; color: #999; }
+
+        .case-bottom { padding: 60px 48px; border-top: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
+        .case-bottom a { font-size: 14px; color: #aaa; transition: color 0.3s; }
+        .case-bottom a:hover { color: #111; }
+        .vibe-note { font-size: 12px; font-style: italic; color: #ddd; transition: color 0.5s; cursor: default; }
+        .vibe-note:hover { color: #999; }
+
+        @media (max-width: 800px) {
+            nav, .statement, .meta-row, .text-block, .two-col, .text-image, .stats-row, .quote-block, .case-bottom { padding-left: 24px; padding-right: 24px; }
+            .meta-row, .two-col, .text-image { grid-template-columns: 1fr; gap: 32px; }
+            .stats-row { grid-template-columns: 1fr; gap: 32px; }
+            .img-pair { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="name">Charlotte Carr</a>
+    <a href="index.html" class="back">← Back</a>
+</nav>
+
+<div class="statement">
+    <h1>Alberta Blue Cross members couldn't tell if their claims documents had been received. I redesigned the upload workflow across mobile and desktop.</h1>
+</div>
+
+<div class="meta-row">
+    <div class="meta-col">
+        <h3>My role</h3>
+        <p>UX Research Intern</p>
+        <p>Claims workflow redesign across mobile and desktop</p>
+        <p>Iterative prototyping in Adobe XD</p>
+        <p>Remote usability testing via UserTesting.com</p>
+    </div>
+    <div class="meta-col">
+        <h3>Outcomes</h3>
+        <p>Redesigned upload flow adopted across the platform</p>
+        <p>Eliminated ambiguous upload states that caused failed submissions</p>
+        <p>Added completion tracking that reduced support calls about claim status</p>
+        <p>Designed contextual confirmation messaging tied to specific statement numbers</p>
+    </div>
+</div>
+
+<!-- Hero image: desktop claims view -->
+<div class="full-img">
+    <!-- <img src="images/abc-hero.jpg" alt="Claims documentation desktop and mobile"> -->
+    <div class="ph"><code>images/abc-hero.jpg</code>Desktop claims history view with document upload flow and annotated design decisions<br>Use the wide desktop screenshot from the portfolio PDF (page 5/7), or composite desktop + mobile</div>
+</div>
+
+<!-- ======= THE PROBLEM ======= -->
+<div class="text-block">
+    <h2>Members were uploading documents into a void. Nothing told them what happened next.</h2>
+    <p>Alberta Blue Cross is one of Canada's largest benefits providers. When members needed to submit supporting documents for a claim — receipts, referral letters, insurance forms — the existing workflow left them guessing. There was no clear indication of whether an upload had been received, which claim it was attached to, or what stage the claim was in. Worse, the interface let users upload documents even when a claim was actively being modified, which meant submissions would silently fail.</p>
+    <p>The result was predictable: members would upload the same document multiple times, call support to ask if their documents arrived, and lose track of which claims still needed action. The problem spanned the full claims lifecycle from initial submission through final adjudication, and it looked different on mobile than on desktop.</p>
+</div>
+
+<!-- ======= DECISION 1: Remove ambiguous upload buttons ======= -->
+<div class="text-image">
+    <div class="text-col">
+        <h2>I removed the upload button from states where uploading would fail.</h2>
+        <p>The existing interface showed an upload button on every claim, regardless of its processing state. If a claim was being modified or adjudicated, uploads would go through the motion of accepting a file but the submission would fail on the backend. Users had no way to know this. They'd upload, see no error, and assume everything was fine.</p>
+        <p>I disabled document uploads when a claim was in a state that couldn't accept them. This was a simple change with an outsized impact: it eliminated an entire category of failed submissions and the confused support calls that followed. The principle was straightforward — don't let users do something that won't work.</p>
+    </div>
+    <div class="img-col">
+        <!-- <img src="images/abc-upload-states.jpg" alt="Upload button states"> -->
+        <div class="ph" style="padding:80px 24px"><code>images/abc-upload-states.jpg</code><br>Desktop view showing the claims interface with upload button disabled during modification</div>
+    </div>
+</div>
+
+<!-- ======= DECISION 2: Completion tracking ======= -->
+<div class="text-block">
+    <h2>I added a "Date completed" column so members could see processing status at a glance.</h2>
+    <p>The claims list showed when a claim was submitted but not when it was resolved. Members had to click into each claim individually to find out if it had been processed, and even then the status language was inconsistent. I added a "Date completed" column to the claims table view. If a claim was still in progress, the field was empty — which itself was informative. If it was done, the date appeared. No ambiguous status labels, no colour-coded badges to decode. Just a date or no date.</p>
+    <p>This one column answered the question that drove the most support calls: "Has my claim been processed yet?"</p>
+</div>
+
+<!-- ======= DECISION 3: Hyperlinked statement numbers ======= -->
+<div class="text-image">
+    <div class="text-col">
+        <h2>I hyperlinked statement numbers so members could jump straight to claim details.</h2>
+        <p>In the existing design, statement numbers were plain text. To see the details of a specific claim, users had to navigate through multiple screens. I made statement numbers clickable links that opened the full claim detail view directly. It cut the number of clicks to reach claim information and made the statement number itself feel like a useful piece of data rather than just a reference code.</p>
+        <p>On the upload confirmation screen, I also tied the success message to the specific statement number: "Your document(s) for statement 5852615 are in. We will review your documents within 10 to 15 days." No ambiguity about which claim the upload applied to, and a clear expectation for when they'd hear back.</p>
+    </div>
+    <div class="img-col">
+        <!-- <img src="images/abc-statement-link.jpg" alt="Hyperlinked statement number and confirmation"> -->
+        <div class="ph" style="padding:80px 24px"><code>images/abc-statement-link.jpg</code><br>Upload confirmation screen showing "Your document(s) for statement 5852615 are in" with hyperlinked statement number</div>
+    </div>
+</div>
+
+<!-- Full-bleed: desktop and mobile side by side -->
+<div class="img-pair">
+    <div>
+        <!-- <img src="images/abc-desktop.jpg" alt="Desktop claims view"> -->
+        <div class="ph" style="padding:100px 24px"><code>images/abc-desktop.jpg</code><br>Desktop: Claims history with document upload flow and annotated design decisions</div>
+    </div>
+    <div>
+        <!-- <img src="images/abc-mobile.jpg" alt="Mobile claims views"> -->
+        <div class="ph" style="padding:100px 24px"><code>images/abc-mobile.jpg</code><br>Mobile: Receipt upload, claims requiring documentation, and claims history views</div>
+    </div>
+</div>
+
+<!-- ======= PROCESS ======= -->
+<div class="text-block">
+    <h2>Every decision came from usability testing, not assumptions.</h2>
+    <p>I ran iterative usability tests through UserTesting.com, testing prototypes built in Adobe XD with real users at each stage. The testing surfaced problems I wouldn't have caught in a design review: users not noticing the upload button was disabled (which led me to add explanatory text), users assuming the statement number was just a code and not realizing it was clickable (which led to underline styling), and users wanting confirmation not just that their upload succeeded but that the right claim received it (which led to the statement-specific success message).</p>
+    <p>The project spanned mobile and desktop, and the two platforms had different pain points. On desktop, the main issue was information density — too many claims with too little status information. On mobile, the issue was flow: users needed to photograph a receipt, select the right claim, and confirm the upload in as few steps as possible. I designed each platform to solve its own problems rather than forcing the same layout across both.</p>
+</div>
+
+<div class="stats-row">
+    <div class="stat-item">
+        <div class="num">2</div>
+        <div class="label">Platforms redesigned (mobile + desktop)</div>
+    </div>
+    <div class="stat-item">
+        <div class="num">4</div>
+        <div class="label">Key design changes shipped</div>
+    </div>
+    <div class="stat-item">
+        <div class="num">Full lifecycle</div>
+        <div class="label">Submission through adjudication</div>
+    </div>
+</div>
+
+<!-- ======= TAKEAWAY ======= -->
+<div class="text-block">
+    <h2>In enterprise B2B, the goal is to make complex processes feel obvious.</h2>
+    <p>This was my first professional design role, and the biggest lesson was that enterprise products fail in mundane ways. Nobody's confused by a single upload button — they're confused by an upload button that sometimes works and sometimes doesn't, with no explanation of why. The fix wasn't a radical redesign. It was making the system's state visible, giving users confirmation that matched their mental model, and removing actions that would lead to failure. Nobody should have to think about how to upload a document.</p>
+</div>
+
+<div class="case-bottom">
+    <a href="index.html">← Back to all work</a>
+    <span class="vibe-note">Vibe-coded with Claude, just for Ramp</span>
+</div>
+
+</body>
+</html>
