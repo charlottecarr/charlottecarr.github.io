@@ -20,7 +20,7 @@
         .statement { padding: 80px 48px 60px; }
         .statement h1 { font-family: 'DM Serif Display', serif; font-size: clamp(32px, 4.5vw, 56px); font-weight: 400; line-height: 1.3; }
 
-        .meta-row { padding: 0 48px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; max-width: 1100px; }
+        .meta-row { padding: 0 48px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
         .meta-col h3 { font-size: 15px; font-weight: 500; color: #111; margin-bottom: 16px; }
         .meta-col p { font-size: 15px; color: #666; line-height: 1.8; }
 
@@ -33,10 +33,15 @@
         .text-block h2 { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 4vw, 52px); font-weight: 400; line-height: 1.25; margin-bottom: 32px; }
         .text-block p { font-size: 15px; color: #666; line-height: 1.9; margin-bottom: 20px; max-width: 680px; }
 
-        .two-col { padding: 0 48px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; max-width: 1100px; }
+        .split-text { padding: 100px 48px 80px; }
+        .split-text h2 { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 4vw, 48px); font-weight: 400; line-height: 1.25; margin-bottom: 40px; }
+        .split-text .body-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+        .split-text .body-cols p { font-size: 15px; color: #666; line-height: 1.9; margin-bottom: 20px; }
+
+        .two-col { padding: 0 48px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
         .two-col p { font-size: 15px; color: #666; line-height: 1.9; }
 
-        .text-image { padding: 0 48px 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+        .text-image { padding: 40px 48px 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
         .text-image .text-col p { font-size: 15px; color: #666; line-height: 1.9; margin-bottom: 20px; }
         .text-image .text-col h2 { font-family: 'DM Serif Display', serif; font-size: clamp(26px, 3.5vw, 46px); font-weight: 400; line-height: 1.3; margin-bottom: 24px; color: #111; }
         .text-image .img-col { background: #F0EEEA; overflow: hidden; border-radius: 4px; }
@@ -46,12 +51,12 @@
         .img-pair > div { background: #F0EEEA; overflow: hidden; min-height: 400px; position: relative; }
         .img-pair img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-        .stats-row { padding: 0 48px 100px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px; max-width: 1100px; }
-        .stat-item .num { font-family: 'DM Serif Display', serif; font-size: 36px; font-weight: 400; color: #111; margin-bottom: 8px; }
-        .stat-item .label { font-size: 13px; color: #999; line-height: 1.6; }
+        .stats-row { padding: 0 48px 100px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px; }
+        .stat-item .num { font-family: 'DM Serif Display', serif; font-size: 48px; font-weight: 400; color: #111; margin-bottom: 8px; }
+        .stat-item .label { font-size: 14px; color: #999; line-height: 1.6; }
 
-        .quote-block { padding: 80px 48px; max-width: 900px; }
-        .quote-block blockquote { font-family: 'DM Serif Display', serif; font-size: clamp(22px, 2.5vw, 32px); font-weight: 400; font-style: italic; line-height: 1.5; }
+        .quote-block { padding: 80px 48px; }
+        .quote-block blockquote { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 3vw, 40px); font-weight: 400; font-style: italic; line-height: 1.5; }
         .quote-block .attr { margin-top: 16px; font-size: 14px; color: #999; }
 
         .case-bottom { padding: 60px 48px; border-top: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
@@ -61,8 +66,8 @@
         .vibe-note:hover { color: #999; }
 
         @media (max-width: 800px) {
-            nav, .statement, .meta-row, .text-block, .two-col, .text-image, .stats-row, .quote-block, .case-bottom { padding-left: 24px; padding-right: 24px; }
-            .meta-row, .two-col, .text-image { grid-template-columns: 1fr; gap: 32px; }
+            nav, .statement, .meta-row, .text-block, .split-text, .two-col, .text-image, .stats-row, .quote-block, .case-bottom { padding-left: 24px; padding-right: 24px; }
+            .meta-row, .two-col, .text-image, .split-text .body-cols { grid-template-columns: 1fr; gap: 32px; }
             .stats-row { grid-template-columns: 1fr 1fr; gap: 32px; }
             .img-pair { grid-template-columns: 1fr; }
         }
@@ -104,10 +109,16 @@
 </div>
 
 <!-- ======= CONTEXT: The product and the problem ======= -->
-<div class="text-block">
+<div class="split-text">
     <h2>SportWise let sports fans build custom data models without code. But the experience dead-ended after they built one.</h2>
-    <p>SportWise by Rolling Insights was a live product that let fantasy sports and sports betting enthusiasts pull real-time data into customizable workspaces called DataSpaces. Think of it as a no-code alternative to the spreadsheets that serious sports fans were already maintaining by hand. The product had real users, a subscription model, and a development team building in React.</p>
-    <p>The client's hypothesis was that users wanted community: a marketplace where analysts and power users could publish their DataSpaces as templates for others to copy and customize. Our job was to validate that hypothesis and design the feature. But first, I needed to understand what was already happening in the product.</p>
+    <div class="body-cols">
+        <div>
+            <p>SportWise by Rolling Insights was a live product that let fantasy sports and sports betting enthusiasts pull real-time data into customizable workspaces called DataSpaces. Think of it as a no-code alternative to the spreadsheets that serious sports fans were already maintaining by hand. The product had real users, a subscription model, and a development team building in React.</p>
+        </div>
+        <div>
+            <p>The client's hypothesis was that users wanted community: a marketplace where analysts and power users could publish their DataSpaces as templates for others to copy and customize. Our job was to validate that hypothesis and design the feature. But first, I needed to understand what was already happening in the product.</p>
+        </div>
+    </div>
 </div>
 
 <!-- ======= JOURNEY MAP: Setting the scene ======= -->
@@ -116,10 +127,16 @@
     <div class="ph"><code>images/sportwise-journey-map.jpg</code>The customer journey map showing the full user flow from sign up through DataSpace creation and beyond<br>Use the journey map PDF — full width, showing the emotion curve and pain points across all phases</div>
 </div>
 
-<div class="text-block">
+<div class="split-text">
     <h2>I mapped the full user journey and found the experience essentially ended after someone created their first DataSpace.</h2>
-    <p>The journey map surfaced something the client hadn't considered: there was no "what's next" after a user built their first DataSpace. No prompt to explore other models, no suggestion to share their work, no guidance on what to do with the data they'd assembled. The emotional arc went from curious to confused to accomplished to... nothing. The "After Viewing" column of the journey map was almost entirely empty.</p>
-    <p>This reframed the entire project. Community DataSpaces wasn't just a nice-to-have social feature. It was the answer to retention: give users somewhere to go after they've built something, and give new users a reason to stay before they've built anything.</p>
+    <div class="body-cols">
+        <div>
+            <p>The journey map surfaced something the client hadn't considered: there was no "what's next" after a user built their first DataSpace. No prompt to explore other models, no suggestion to share their work, no guidance on what to do with the data they'd assembled. The emotional arc went from curious to confused to accomplished to... nothing. The "After Viewing" column of the journey map was almost entirely empty.</p>
+        </div>
+        <div>
+            <p>This reframed the entire project. Community DataSpaces wasn't just a nice-to-have social feature. It was the answer to retention: give users somewhere to go after they've built something, and give new users a reason to stay before they've built anything.</p>
+        </div>
+    </div>
 </div>
 
 <!-- ======= AUDIT: Existing product was broken ======= -->
@@ -136,10 +153,16 @@
 </div>
 
 <!-- ======= RESEARCH: Survey + Interviews ======= -->
-<div class="text-block">
+<div class="split-text">
     <h2>I co-designed a survey, recruited through sports subreddits, and facilitated user interviews to validate the community concept.</h2>
-    <p>The client assumed users wanted to share their DataSpaces. We didn't know if that was true, what "community" meant to sports data users, or what would motivate someone to publish their model for others to copy. I co-designed a survey covering fantasy sports habits, sports betting behaviour, and analytics tool usage. We distributed it through sports subreddits and personal networks and had 26 responses in five days.</p>
-    <p>The data was instructive. Interest in browsing community DataSpaces was moderate (4.9/10) and willingness to share was lower (3.9/10). But the top-requested feature was search and filtering (4.1/5). That told us: if we build this, discoverability matters more than social features. I then facilitated paid interviews ($50 gift cards) with users who opted in, testing design concepts and digging into their real workflows with tools like Excel, Sleeper, and DraftKings.</p>
+    <div class="body-cols">
+        <div>
+            <p>The client assumed users wanted to share their DataSpaces. We didn't know if that was true, what "community" meant to sports data users, or what would motivate someone to publish their model for others to copy. I co-designed a survey covering fantasy sports habits, sports betting behaviour, and analytics tool usage. We distributed it through sports subreddits and personal networks and had 26 responses in five days.</p>
+        </div>
+        <div>
+            <p>The data was instructive. Interest in browsing community DataSpaces was moderate (4.9/10) and willingness to share was lower (3.9/10). But the top-requested feature was search and filtering (4.1/5). That told us: if we build this, discoverability matters more than social features. I then facilitated paid interviews ($50 gift cards) with users who opted in, testing design concepts and digging into their real workflows with tools like Excel, Sleeper, and DraftKings.</p>
+        </div>
+    </div>
 </div>
 
 <div class="stats-row">
@@ -162,10 +185,16 @@
 </div>
 
 <!-- ======= DATA SELECTION REDESIGN ======= -->
-<div class="text-block">
+<div class="split-text">
     <h2>The existing data selection page was the biggest drop-off point. I redesigned it with a clear hierarchy and a progress stepper.</h2>
-    <p>The old UI showed all data sources at once with their fields in a flat list. Users couldn't tell what they'd already selected, what a "join" was, or what would happen when they clicked "Create DataSpace." Our survey confirmed users found the sports terminology manageable (7.0/10) but the navigation and layout confusing (4.8/10).</p>
-    <p>I redesigned the flow with collapsible data source cards, a sidebar showing selections in real time, and a progress stepper that made selecting data, choosing fields, and joining sources feel like distinct steps rather than one overwhelming page. The new design also added a guided tooltip overlay for first-time users, borrowing from the onboarding pattern I was developing in parallel for Community DataSpaces.</p>
+    <div class="body-cols">
+        <div>
+            <p>The old UI showed all data sources at once with their fields in a flat list. Users couldn't tell what they'd already selected, what a "join" was, or what would happen when they clicked "Create DataSpace." Our survey confirmed users found the sports terminology manageable (7.0/10) but the navigation and layout confusing (4.8/10).</p>
+        </div>
+        <div>
+            <p>I redesigned the flow with collapsible data source cards, a sidebar showing selections in real time, and a progress stepper that made selecting data, choosing fields, and joining sources feel like distinct steps rather than one overwhelming page. The new design also added a guided tooltip overlay for first-time users, borrowing from the onboarding pattern I was developing in parallel for Community DataSpaces.</p>
+        </div>
+    </div>
 </div>
 
 <!-- Full-bleed: before/after data selection -->
@@ -194,9 +223,16 @@
 </div>
 
 <!-- ======= COMMENT SYSTEM: Community engagement ======= -->
-<div class="text-block">
+<div class="split-text">
     <h2>A marketplace without conversation is just a library. I designed a comment system to make Community DataSpaces feel alive.</h2>
-    <p>The survey and interviews told us that sports fans are inherently social: 69% followed athletes and teams on social media, and the most engaged users were already discussing strategies on Reddit and Discord. If Community DataSpaces was going to work, users needed to be able to react to each other's models, ask questions, share tips, and build on each other's ideas. A static browse-and-copy experience wouldn't generate the return visits the product needed.</p>
+    <div class="body-cols">
+        <div>
+            <p>The survey and interviews told us that sports fans are inherently social: 69% followed athletes and teams on social media, and the most engaged users were already discussing strategies on Reddit and Discord.</p>
+        </div>
+        <div>
+            <p>If Community DataSpaces was going to work, users needed to be able to react to each other's models, ask questions, share tips, and build on each other's ideas. A static browse-and-copy experience wouldn't generate the return visits the product needed.</p>
+        </div>
+    </div>
 </div>
 
 <div class="text-image">
@@ -212,10 +248,16 @@
 </div>
 
 <!-- ======= WHAT I SHIPPED ======= -->
-<div class="text-block">
+<div class="split-text">
     <h2>Six weeks. A full feature, a product audit, a redesigned core flow, and a comment system — all designed and in development.</h2>
-    <p>The developer on our team built the front-end in React and Material UI while I was designing. Handoff was continuous: I'd finalize screens in Figma, walk through the interactions, and iterate based on what was technically feasible. The client presented our work at the final capstone demo night to an audience of industry partners.</p>
-    <p>Looking back, the biggest thing I'd do differently is push for a larger survey sample. Twenty-six respondents gave us directional data, but the Community DataSpaces interest scores were lukewarm enough that a bigger sample might have changed the feature's priority entirely. Sometimes the most valuable research finding is "maybe don't build this yet" — and I'd want stronger data before making that call.</p>
+    <div class="body-cols">
+        <div>
+            <p>The developer on our team built the front-end in React and Material UI while I was designing. Handoff was continuous: I'd finalize screens in Figma, walk through the interactions, and iterate based on what was technically feasible. The client presented our work at the final capstone demo night to an audience of industry partners.</p>
+        </div>
+        <div>
+            <p>Looking back, the biggest thing I'd do differently is push for a larger survey sample. Twenty-six respondents gave us directional data, but the Community DataSpaces interest scores were lukewarm enough that a bigger sample might have changed the feature's priority entirely. Sometimes the most valuable research finding is "maybe don't build this yet" — and I'd want stronger data before making that call.</p>
+        </div>
+    </div>
 </div>
 
 <div class="case-bottom">
