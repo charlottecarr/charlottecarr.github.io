@@ -20,7 +20,7 @@
         .statement { padding: 80px 48px 60px; }
         .statement h1 { font-family: 'DM Serif Display', serif; font-size: clamp(32px, 4.5vw, 56px); font-weight: 400; line-height: 1.3; }
 
-        .meta-row { padding: 0 48px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; max-width: 1100px; }
+        .meta-row { padding: 0 48px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
         .meta-col h3 { font-size: 15px; font-weight: 500; color: #111; margin-bottom: 16px; }
         .meta-col p { font-size: 15px; color: #666; line-height: 1.8; }
 
@@ -29,14 +29,12 @@
         .full-img .ph { padding: 120px 48px; font-size: 13px; color: #bbb; text-align: center; }
         .full-img .ph code { display: block; font-size: 12px; background: #e6e3dd; padding: 4px 14px; border-radius: 3px; color: #999; width: fit-content; margin: 0 auto 8px; }
 
-        .text-block { padding: 100px 48px 40px; }
-        .text-block h2 { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 4vw, 52px); font-weight: 400; line-height: 1.25; margin-bottom: 32px; }
-        .text-block p { font-size: 15px; color: #666; line-height: 1.9; margin-bottom: 20px; max-width: 680px; }
+        .split-text { padding: 100px 48px 80px; }
+        .split-text h2 { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 4vw, 48px); font-weight: 400; line-height: 1.25; margin-bottom: 40px; }
+        .split-text .body-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+        .split-text .body-cols p { font-size: 15px; color: #666; line-height: 1.9; margin-bottom: 20px; }
 
-        .two-col { padding: 0 48px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; max-width: 1100px; }
-        .two-col p { font-size: 15px; color: #666; line-height: 1.9; }
-
-        .text-image { padding: 0 48px 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+        .text-image { padding: 40px 48px 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
         .text-image .text-col p { font-size: 15px; color: #666; line-height: 1.9; margin-bottom: 20px; }
         .text-image .text-col h2 { font-family: 'DM Serif Display', serif; font-size: clamp(26px, 3.5vw, 46px); font-weight: 400; line-height: 1.3; margin-bottom: 24px; color: #111; }
         .text-image .img-col { background: #F0EEEA; overflow: hidden; border-radius: 4px; }
@@ -46,12 +44,12 @@
         .img-pair > div { background: #F0EEEA; overflow: hidden; min-height: 400px; position: relative; }
         .img-pair img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-        .stats-row { padding: 0 48px 100px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; max-width: 1100px; }
-        .stat-item .num { font-family: 'DM Serif Display', serif; font-size: 36px; font-weight: 400; color: #111; margin-bottom: 8px; }
-        .stat-item .label { font-size: 13px; color: #999; line-height: 1.6; }
+        .stats-row { padding: 0 48px 100px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; }
+        .stat-item .num { font-family: 'DM Serif Display', serif; font-size: 48px; font-weight: 400; color: #111; margin-bottom: 8px; }
+        .stat-item .label { font-size: 14px; color: #999; line-height: 1.6; }
 
-        .quote-block { padding: 80px 48px; max-width: 900px; }
-        .quote-block blockquote { font-family: 'DM Serif Display', serif; font-size: clamp(22px, 2.5vw, 32px); font-weight: 400; font-style: italic; line-height: 1.5; }
+        .quote-block { padding: 80px 48px; }
+        .quote-block blockquote { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 3vw, 40px); font-weight: 400; font-style: italic; line-height: 1.5; }
         .quote-block .attr { margin-top: 16px; font-size: 14px; color: #999; }
 
         .case-bottom { padding: 60px 48px; border-top: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
@@ -61,8 +59,8 @@
         .vibe-note:hover { color: #999; }
 
         @media (max-width: 800px) {
-            nav, .statement, .meta-row, .text-block, .two-col, .text-image, .stats-row, .quote-block, .case-bottom { padding-left: 24px; padding-right: 24px; }
-            .meta-row, .two-col, .text-image { grid-template-columns: 1fr; gap: 32px; }
+            nav, .statement, .meta-row, .split-text, .text-image, .stats-row, .quote-block, .case-bottom { padding-left: 24px; padding-right: 24px; }
+            .meta-row, .text-image, .split-text .body-cols { grid-template-columns: 1fr; gap: 32px; }
             .stats-row { grid-template-columns: 1fr; gap: 32px; }
             .img-pair { grid-template-columns: 1fr; }
         }
@@ -103,10 +101,16 @@
 </div>
 
 <!-- ======= THE PROBLEM ======= -->
-<div class="text-block">
+<div class="split-text">
     <h2>Members were uploading documents into a void. Nothing told them what happened next.</h2>
-    <p>Alberta Blue Cross is one of Canada's largest benefits providers. When members needed to submit supporting documents for a claim — receipts, referral letters, insurance forms — the existing workflow left them guessing. There was no clear indication of whether an upload had been received, which claim it was attached to, or what stage the claim was in. Worse, the interface let users upload documents even when a claim was actively being modified, which meant submissions would silently fail.</p>
-    <p>The result was predictable: members would upload the same document multiple times, call support to ask if their documents arrived, and lose track of which claims still needed action. The problem spanned the full claims lifecycle from initial submission through final adjudication, and it looked different on mobile than on desktop.</p>
+    <div class="body-cols">
+        <div>
+            <p>Alberta Blue Cross is one of Canada's largest benefits providers. When members needed to submit supporting documents for a claim — receipts, referral letters, insurance forms — the existing workflow left them guessing. There was no clear indication of whether an upload had been received, which claim it was attached to, or what stage the claim was in. Worse, the interface let users upload documents even when a claim was actively being modified, which meant submissions would silently fail.</p>
+        </div>
+        <div>
+            <p>The result was predictable: members would upload the same document multiple times, call support to ask if their documents arrived, and lose track of which claims still needed action. The problem spanned the full claims lifecycle from initial submission through final adjudication, and it looked different on mobile than on desktop.</p>
+        </div>
+    </div>
 </div>
 
 <!-- ======= DECISION 1: Remove ambiguous upload buttons ======= -->
@@ -123,10 +127,16 @@
 </div>
 
 <!-- ======= DECISION 2: Completion tracking ======= -->
-<div class="text-block">
+<div class="split-text">
     <h2>I added a "Date completed" column so members could see processing status at a glance.</h2>
-    <p>The claims list showed when a claim was submitted but not when it was resolved. Members had to click into each claim individually to find out if it had been processed, and even then the status language was inconsistent. I added a "Date completed" column to the claims table view. If a claim was still in progress, the field was empty — which itself was informative. If it was done, the date appeared. No ambiguous status labels, no colour-coded badges to decode. Just a date or no date.</p>
-    <p>This one column answered the question that drove the most support calls: "Has my claim been processed yet?"</p>
+    <div class="body-cols">
+        <div>
+            <p>The claims list showed when a claim was submitted but not when it was resolved. Members had to click into each claim individually to find out if it had been processed, and even then the status language was inconsistent. I added a "Date completed" column to the claims table view. If a claim was still in progress, the field was empty — which itself was informative. If it was done, the date appeared.</p>
+        </div>
+        <div>
+            <p>No ambiguous status labels, no colour-coded badges to decode. Just a date or no date. This one column answered the question that drove the most support calls: "Has my claim been processed yet?"</p>
+        </div>
+    </div>
 </div>
 
 <!-- ======= DECISION 3: Hyperlinked statement numbers ======= -->
@@ -155,10 +165,16 @@
 </div>
 
 <!-- ======= PROCESS ======= -->
-<div class="text-block">
+<div class="split-text">
     <h2>Every decision came from usability testing, not assumptions.</h2>
-    <p>I ran iterative usability tests through UserTesting.com, testing prototypes built in Adobe XD with real users at each stage. The testing surfaced problems I wouldn't have caught in a design review: users not noticing the upload button was disabled (which led me to add explanatory text), users assuming the statement number was just a code and not realizing it was clickable (which led to underline styling), and users wanting confirmation not just that their upload succeeded but that the right claim received it (which led to the statement-specific success message).</p>
-    <p>The project spanned mobile and desktop, and the two platforms had different pain points. On desktop, the main issue was information density — too many claims with too little status information. On mobile, the issue was flow: users needed to photograph a receipt, select the right claim, and confirm the upload in as few steps as possible. I designed each platform to solve its own problems rather than forcing the same layout across both.</p>
+    <div class="body-cols">
+        <div>
+            <p>I ran iterative usability tests through UserTesting.com, testing prototypes built in Adobe XD with real users at each stage. The testing surfaced problems I wouldn't have caught in a design review: users not noticing the upload button was disabled (which led me to add explanatory text), users assuming the statement number was just a code and not realizing it was clickable (which led to underline styling), and users wanting confirmation not just that their upload succeeded but that the right claim received it (which led to the statement-specific success message).</p>
+        </div>
+        <div>
+            <p>The project spanned mobile and desktop, and the two platforms had different pain points. On desktop, the main issue was information density — too many claims with too little status information. On mobile, the issue was flow: users needed to photograph a receipt, select the right claim, and confirm the upload in as few steps as possible. I designed each platform to solve its own problems rather than forcing the same layout across both.</p>
+        </div>
+    </div>
 </div>
 
 <div class="stats-row">
@@ -177,9 +193,16 @@
 </div>
 
 <!-- ======= TAKEAWAY ======= -->
-<div class="text-block">
+<div class="split-text">
     <h2>In enterprise B2B, the goal is to make complex processes feel obvious.</h2>
-    <p>This was my first professional design role, and the biggest lesson was that enterprise products fail in mundane ways. Nobody's confused by a single upload button — they're confused by an upload button that sometimes works and sometimes doesn't, with no explanation of why. The fix wasn't a radical redesign. It was making the system's state visible, giving users confirmation that matched their mental model, and removing actions that would lead to failure. Nobody should have to think about how to upload a document.</p>
+    <div class="body-cols">
+        <div>
+            <p>This was my first professional design role, and the biggest lesson was that enterprise products fail in mundane ways. Nobody's confused by a single upload button — they're confused by an upload button that sometimes works and sometimes doesn't, with no explanation of why.</p>
+        </div>
+        <div>
+            <p>The fix wasn't a radical redesign. It was making the system's state visible, giving users confirmation that matched their mental model, and removing actions that would lead to failure. Nobody should have to think about how to upload a document.</p>
+        </div>
+    </div>
 </div>
 
 <div class="case-bottom">
