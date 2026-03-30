@@ -20,7 +20,7 @@
         .statement { padding: 80px 48px 60px; }
         .statement h1 { font-family: 'DM Serif Display', serif; font-size: clamp(32px, 4.5vw, 56px); font-weight: 400; line-height: 1.3; }
 
-        .meta-row { padding: 0 48px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; max-width: 1100px; }
+        .meta-row { padding: 0 48px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
         .meta-col h3 { font-size: 15px; font-weight: 500; color: #111; margin-bottom: 16px; }
         .meta-col p { font-size: 15px; color: #666; line-height: 1.8; }
 
@@ -32,6 +32,11 @@
         .text-block { padding: 100px 48px 40px; }
         .text-block p { font-size: 15px; color: #666; line-height: 1.9; margin-bottom: 20px; max-width: 680px; }
         .text-block h2 { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 4vw, 52px); font-weight: 400; line-height: 1.25; margin-bottom: 32px; }
+
+        .split-text { padding: 100px 48px 80px; }
+        .split-text h2 { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 4vw, 48px); font-weight: 400; line-height: 1.25; margin-bottom: 40px; }
+        .split-text .body-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+        .split-text .body-cols p { font-size: 15px; color: #666; line-height: 1.9; margin-bottom: 20px; }
 
         .two-col { padding: 0 48px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; max-width: 1100px; }
         .two-col p { font-size: 15px; color: #666; line-height: 1.9; }
@@ -85,18 +90,18 @@
             padding: 8px;
         }
 
-        .text-image { padding: 0 48px 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+        .text-image { padding: 40px 48px 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
         .text-image .text-col p { font-size: 15px; color: #666; line-height: 1.9; margin-bottom: 20px; }
         .text-image .text-col h2 { font-family: 'DM Serif Display', serif; font-size: clamp(26px, 3.5vw, 46px); font-weight: 400; line-height: 1.3; margin-bottom: 24px; }
         .text-image .img-col { background: #F0EEEA; overflow: hidden; border-radius: 4px; }
         .text-image .img-col img { width: 100%; display: block; }
 
-        .stats-row { padding: 0 48px 100px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; max-width: 1100px; }
-        .stat-item .num { font-family: 'DM Serif Display', serif; font-size: 36px; font-weight: 400; color: #111; margin-bottom: 8px; }
-        .stat-item .label { font-size: 13px; color: #999; line-height: 1.6; }
+        .stats-row { padding: 0 48px 100px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; }
+        .stat-item .num { font-family: 'DM Serif Display', serif; font-size: 48px; font-weight: 400; color: #111; margin-bottom: 8px; }
+        .stat-item .label { font-size: 14px; color: #999; line-height: 1.6; }
 
-        .quote-block { padding: 80px 48px; max-width: 900px; }
-        .quote-block blockquote { font-family: 'DM Serif Display', serif; font-size: clamp(22px, 2.5vw, 32px); font-weight: 400; font-style: italic; line-height: 1.5; }
+        .quote-block { padding: 80px 48px; }
+        .quote-block blockquote { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 3vw, 40px); font-weight: 400; font-style: italic; line-height: 1.5; }
         .quote-block .attr { margin-top: 16px; font-size: 14px; color: #999; }
 
         .case-bottom { padding: 60px 48px; border-top: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
@@ -106,8 +111,8 @@
         .vibe-note:hover { color: #999; }
 
         @media (max-width: 800px) {
-            nav, .statement, .meta-row, .text-block, .two-col, .text-screens, .text-image, .stats-row, .quote-block, .case-bottom { padding-left: 24px; padding-right: 24px; }
-            .meta-row, .two-col, .text-screens, .text-image { grid-template-columns: 1fr; gap: 32px; }
+            nav, .statement, .meta-row, .text-block, .split-text, .two-col, .text-screens, .text-image, .stats-row, .quote-block, .case-bottom { padding-left: 24px; padding-right: 24px; }
+            .meta-row, .two-col, .text-screens, .text-image, .split-text .body-cols { grid-template-columns: 1fr; gap: 32px; }
             .stats-row { grid-template-columns: 1fr; gap: 32px; }
             .text-screens .screens-col { flex-wrap: wrap; }
             .text-screens .screens-col .ph-screen { width: 45%; }
@@ -150,10 +155,16 @@
 </div>
 
 <!-- ======= DECISION 1: Validate before you build ======= -->
-<div class="text-block">
+<div class="split-text">
     <h2>We didn't have the budget or expertise to build a custom wearable. So we used a dog collar.</h2>
-    <p>Trichotillomania treatments like habit reversal training require regular clinic visits and don't help in the moment when pulling actually happens. We wanted to test whether a real-time haptic alert on the wrist could disrupt the behaviour as it occurs. But we weren't hardware engineers and didn't have a budget for custom devices.</p>
-    <p>We bought a vibrating dog training collar, put it on participants' wrists, and used Wizard-of-Oz testing: we watched for hair-directed behaviours and triggered the vibration manually. This let us test the interaction pattern without building the technology. The prototype was uncomfortable and every participant said so. That wasn't the point. The point was to find out if the concept works before investing in something expensive.</p>
+    <div class="body-cols">
+        <div>
+            <p>Trichotillomania treatments like habit reversal training require regular clinic visits and don't help in the moment when pulling actually happens. We wanted to test whether a real-time haptic alert on the wrist could disrupt the behaviour as it occurs. But we weren't hardware engineers and didn't have a budget for custom devices.</p>
+        </div>
+        <div>
+            <p>We bought a vibrating dog training collar, put it on participants' wrists, and used Wizard-of-Oz testing: we watched for hair-directed behaviours and triggered the vibration manually. This let us test the interaction pattern without building the technology. The prototype was uncomfortable and every participant said so. That wasn't the point. The point was to find out if the concept works before investing in something expensive.</p>
+        </div>
+    </div>
 </div>
 
 <div class="text-image">
@@ -184,9 +195,14 @@
 </div>
 
 <!-- ======= WIREFRAMES: the process ======= -->
-<div class="text-block">
+<div class="split-text">
     <h2>I started with wireframes to map out every screen before touching visual design.</h2>
-    <p>The companion app needed to support the bracelet intervention with long-term tracking, self-awareness tools, and community features. I mapped out the full information architecture in low-fidelity first: welcome flow, pull logging, diary entries with mood tracking, community forum, data pages with graphs and statistics, haptic feedback settings.</p>
+    <div class="body-cols">
+        <div>
+            <p>The companion app needed to support the bracelet intervention with long-term tracking, self-awareness tools, and community features. I mapped out the full information architecture in low-fidelity first: welcome flow, pull logging, diary entries with mood tracking, community forum, data pages with graphs and statistics, haptic feedback settings.</p>
+        </div>
+        <div></div>
+    </div>
 </div>
 
 <!-- Full-bleed: wireframes -->
@@ -236,10 +252,16 @@
 </div>
 
 <!-- ======= WHAT I'D DO DIFFERENTLY ======= -->
-<div class="text-block">
+<div class="split-text">
     <h2>What I'd do differently next time.</h2>
-    <p>The biggest gap: one participant started using their other hand to pull while wearing the device. A single wrist device isn't enough. Research on similar interventions shows that two bracelets brought face-touching behaviours to almost zero. A ring form factor would also solve the comfort problems every participant mentioned.</p>
-    <p>The trivia stress induction was mild (ethics board constraints). Real-world stressors would trigger stronger pulling urges, which means the intervention effect could be even stronger in practice than what we measured. A longer study with more participants and real daily use would give much better data on whether the behaviour change persists.</p>
+    <div class="body-cols">
+        <div>
+            <p>The biggest gap: one participant started using their other hand to pull while wearing the device. A single wrist device isn't enough. Research on similar interventions shows that two bracelets brought face-touching behaviours to almost zero. A ring form factor would also solve the comfort problems every participant mentioned.</p>
+        </div>
+        <div>
+            <p>The trivia stress induction was mild (ethics board constraints). Real-world stressors would trigger stronger pulling urges, which means the intervention effect could be even stronger in practice than what we measured. A longer study with more participants and real daily use would give much better data on whether the behaviour change persists.</p>
+        </div>
+    </div>
 </div>
 
 <div class="case-bottom">
